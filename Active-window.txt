@@ -28,3 +28,5 @@ slmgr /skms kms8.msguides.com
 
 slmgr /ato
 
+
+Them may dong cho vui
