@@ -1,0 +1,131 @@
+
+https://github.com/okd-project/okd/releases?page=3
+
+{"auths":{"quay.okdcluster.mainproduction.local:8443":{"auth":"aW5pdDpBZG1pbkAxMjM="}}}
+
+
+  -----BEGIN CERTIFICATE-----
+  MIID8zCCAtugAwIBAgIUZt22qmw1Ji6CLWrdJjQWBUQugBwwDQYJKoZIhvcNAQEL
+  BQAwfjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAlZBMREwDwYDVQQHDAhOZXcgWW9y
+  azENMAsGA1UECgwEUXVheTERMA8GA1UECwwIRGl2aXNpb24xLTArBgNVBAMMJHF1
+  YXkub2tkY2x1c3Rlci5tYWlucHJvZHVjdGlvbi5sb2NhbDAeFw0yNDA2MjkwOTM1
+  MjdaFw0yNzA0MTkwOTM1MjdaMH4xCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJWQTER
+  MA8GA1UEBwwITmV3IFlvcmsxDTALBgNVBAoMBFF1YXkxETAPBgNVBAsMCERpdmlz
+  aW9uMS0wKwYDVQQDDCRxdWF5Lm9rZGNsdXN0ZXIubWFpbnByb2R1Y3Rpb24ubG9j
+  YWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0joMvB8H+ha5a5Xqu
+  hKGvreN26w4GyEjEmBwiZn9yl6Tciz2pWUoKIqsG7dDYAO3lMeZzz8unEcGQecik
+  yaUxVVGODVzaV8n2HyTsvM87j2bdFUAS699zqeKpi/PCE0xlZSqENgwb7sWT85WR
+  3PeN25oT/tP6mxFvxGZm9mFPpP5opGjnzE9Jj1W3SE10QVPWIU93x8CsG3T1+ySw
+  PTomV2uqbucvrN9TYENDwPJDK//rbzoLx02BiBxa5W9lmUQ5UFbEDqHyQ6SB9E0b
+  EYPLxl4aDEpn7Cx+xusgchoaIDHSDIF1kSys8dDWurCq8CKsttg7F148CHZjktxV
+  3hlvAgMBAAGjaTBnMAsGA1UdDwQEAwIC5DATBgNVHSUEDDAKBggrBgEFBQcDATAv
+  BgNVHREEKDAmgiRxdWF5Lm9rZGNsdXN0ZXIubWFpbnByb2R1Y3Rpb24ubG9jYWww
+  EgYDVR0TAQH/BAgwBgEB/wIBATANBgkqhkiG9w0BAQsFAAOCAQEAc8jvuMRR6O4K
+  i6NXf8w88M3OUqAkSFbSC/P94dFFfVRwh6lMU5/T1BAnpOXBAuakJcdDkNhud+Hh
+  qbMp/Zhjw9fOn+MPXIu2HBCVY6VtxQLdAzbMU5eZNeeaiI4a0kjEwtw6QhoFN3OL
+  hZX41qKPw935fHwXFwNgJrHK5bmi9Qn/VCH+I/GuqdRi80OkOloSZfmu6I1SCwDS
+  uO9jiDkzO2GBUVvNEp5/AreDrwR+9B4fB2Vmcm1QSSrgkLJGkzO4kooxR1jp0jUo
+  GmlErJisSCY9m8LLVI2dY4KsmlPMtt+kdV5bRLb5xEJf2uFp4qhoajvG1YkQR+et
+  dASezdr2cQ==
+  -----END CERTIFICATE-----
+
+imageContentSources:
+- mirrors:
+  - quay.okdcluster.mainproduction.local:8443/okd4/openshift4
+  source: quay.io/openshift/okd
+- mirrors:
+  - quay.okdcluster.mainproduction.local:8443/okd4/openshift4
+  source: quay.io/openshift/okd-content
+
+
+  
+ip=10.2.220.40::10.2.220.253:255.255.255.0:bootstrap.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.31::10.2.220.253:255.255.255.0:master01.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.32::10.2.220.253:255.255.255.0:master02.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.33::10.2.220.253:255.255.255.0:master03.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.34::10.2.220.253:255.255.255.0:worker01.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.35::10.2.220.253:255.255.255.0:worker02.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.36::10.2.220.253:255.255.255.0:worker03.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.37::10.2.220.253:255.255.255.0:worker04.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+ip=10.2.220.38::10.2.220.253:255.255.255.0:worker05.okdcluster.mainproduction.local:ens192:none nameserver=10.2.220.15
+
+Error: initializing source docker://quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:a16832e9c1f864f0f8455237987cb75061483d55d4fd2619af2f93ac3563390d: reading manifest sha256:a16832e9c1f864f0f8455237987cb75061483d55d4fd2619af2f93ac3563390d in quay.io/openshift-release-dev/ocp-v4.0-art-dev: unauthorized: access to the requested resource is not authorized
+
+ERROR Bootstrap failed to complete: timed out waiting for the condition
+ERROR Failed to wait for bootstrapping to complete. This error usually happens when there is a problem with control plane hosts that prevents the control plane operators from creating the control plane.
+
+openshift-install coreos print-stream-json | jq -r '.architectures.x86_64.artifacts.metal.formats'
+openshift-install coreos print-stream-json | jq -r '.architectures'
+
+
+
+
+aW5pdDpBZG1pbkAxMjM=
+
+"quay.okdtest.mainproduction.local:8443": {
+      "auth": "aW5pdDpBZG1pbkAxMjM=", 
+      "email": "you@example.com"
+    },
+
+oc adm release mirror -a ${LOCAL_SECRET_JSON} --from=quay.io/${PRODUCT_REPO}/${RELEASE_NAME}:${OCP_RELEASE} --to=${LOCAL_REGISTRY}/${LOCAL_REPOSITORY} --to-release-image=${LOCAL_REGISTRY}/${LOCAL_REPOSITORY}:${OCP_RELEASE} --dry-run
+
+imageContentSources:
+- mirrors:
+  - quay.okdtest.mainproduction.local:8443/okd4/openshift
+  source: quay.io/openshift/okd
+- mirrors:
+  - quay.okdtest.mainproduction.local:8443/okd4/openshift
+  source: quay.io/openshift/okd-content
+
+openshift-install coreos print-stream-json | jq -r '.architectures.x86_64.artifacts.metal.formats'
+openshift-install coreos print-stream-json | jq -r '.architectures'
+openshift-install coreos print-stream-json | grep '\.iso[^.]'
+
+sha512sum <installation_directory>/bootstrap.ign
+sudo coreos-installer install --ignition-url=http://<HTTP_server>/<node_type>.ign <device> --ignition-hash=sha512-<digest>  
+Replace bootstrap.ign with master.ign or worker.ign in the command to validate that the Ignition config files for the control plane and compute nodes are also available.
+
+The following example initializes a bootstrap node installation to the /dev/sda device. The Ignition config file for the bootstrap node is obtained from an HTTP web server with the IP address 192.168.1.2:
+sudo coreos-installer install --ignition-url=http://192.168.1.2:80/installation_directory/bootstrap.ign /dev/sda --ignition-hash=sha512-a5a2d43879223273c9b60af66b44202a1d1248fc01cf156c46d4a79f552b6bad47bc8cc78ddf0116e80c59d2ea9e32ba53bc807afbca581aa059311def2c3e3b
+
+
+
+<install-config.yaml>
+
+apiVersion: v1
+baseDomain: example.com 
+compute: 
+- hyperthreading: Enabled 
+  name: worker
+  replicas: 0 
+controlPlane: 
+  hyperthreading: Enabled 
+  name: master
+  replicas: 3 
+metadata:
+  name: test 
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14 
+    hostPrefix: 23 
+  networkType: OVNKubernetes 
+  serviceNetwork: 
+  - 172.30.0.0/16
+platform:
+  none: {} 
+pullSecret: '{"auths": ...}' 
+sshKey: 'ssh-ed25519 AAAA...' 
+
+
+
+
+after boot
+nmtui
+$ sudo coreos-installer install --copy-network \
+     --ignition-url=http://host/worker.ign /dev/disk/by-id/scsi-<serial_number>
+
+ip=10.10.10.2::10.10.10.254:255.255.255.0:core0.example.com:enp2s0.100:none
+vlan=enp2s0.100:enp2s0
+
+ip=10.10.10.2::10.10.10.254:255.255.255.0:core0.example.com:enp1s0:none
+nameserver=4.4.4.41
