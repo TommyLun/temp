@@ -1,0 +1,128 @@
+[root@hannvzdlrasvr01 ~]# racli run check --all
+Wed Dec  4 17:52:44 2024: Start: racli run check --all
+Wed Dec  4 17:52:44 2024: Log file: hannvzdlrasvr01.dancuquocgia.bca:/opt/oracle.RecoveryAppliance/log/racli_run_check_20241204.1752.log
+Wed Dec  4 17:52:47 2024: CHECK: RA Services                         - PASS
+Wed Dec  4 17:53:00 2024: CHECK: Exadata Image Version               - PASS
+Wed Dec  4 17:53:03 2024: CHECK: RA_CATALOG Tablespace               - PASS
+Wed Dec  4 17:53:06 2024: CHECK: Check Active Incidents              - FAIL
+Wed Dec  4 17:53:06 2024:       CAUSE
+Wed Dec  4 17:53:06 2024:         WARNING!!! Active incidents found
+Wed Dec  4 17:53:06 2024:         For more details, see log file:
+Wed Dec  4 17:53:06 2024:          - /opt/oracle.RecoveryAppliance/log/racli_check_active_incidents_20241204.1753.log
+Wed Dec  4 17:53:17 2024: CHECK: Init Parameters                     - PASS
+Wed Dec  4 17:53:17 2024: CHECK: Invalid Objects                     - PASS
+Wed Dec  4 17:53:17 2024: CHECK: Export Backup                       - FAIL
+Wed Dec  4 17:53:17 2024:       see log file: /opt/oracle.RecoveryAppliance/log/racli_check_ra_export_20241204.1753.log
+Wed Dec  4 17:53:18 2024: CHECK: ZDLRA Rasys Wallet                  - PASS
+Wed Dec  4 17:53:20 2024: CHECK: Compute Node AlertHistory           - PASS
+Wed Dec  4 17:53:20 2024:       HOST: [hannvzdlrasvr02]                  - PASS
+Wed Dec  4 17:53:20 2024:       HOST: [hannvzdlrasvr01]                  - PASS
+Wed Dec  4 17:53:32 2024: CHECK: Storage Cell AlertHistory           - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel11]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel09]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel02]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel08]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel06]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel03]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel05]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel01]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel07]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel10]               - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlracel04]               - PASS
+Wed Dec  4 17:53:32 2024: CHECK: Oracle User Password Expires        - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlrasvr01]                  - PASS
+Wed Dec  4 17:53:32 2024:       HOST: [hannvzdlrasvr02]                  - PASS
+Wed Dec  4 17:53:33 2024: CHECK: ZDLRA Version                       - PASS
+Wed Dec  4 17:53:33 2024:       HOST: [hannvzdlrasvr02]                  - PASS
+Wed Dec  4 17:53:33 2024:       HOST: [hannvzdlrasvr01]                  - PASS
+Wed Dec  4 17:53:33 2024: CHECK: Session Count                       - PASS
+Wed Dec  4 17:53:33 2024:       Session count: 64
+Wed Dec  4 17:53:35 2024: CHECK: Filesystem Space                    - PASS
+Wed Dec  4 17:53:36 2024: CHECK: TLS Health                          - PASS
+Wed Dec  4 17:53:36 2024: CHECK: RA Compliance                       - SKIP
+Wed Dec  4 17:53:36 2024: End: racli run check --all
+[root@hannvzdlrasvr01 ~]# cat /opt/oracle.RecoveryAppliance/log/racli_check_active_incidents_20241204.1753.log
+Wed Dec  4 17:53:05 2024: Nothing to do. [3] < [10]Wed Dec  4 17:53:05 2024: !!!WARNING ACTIVE INCIDENTS FOUND!!!
+Wed Dec  4 17:53:05 2024:
+
+      To learn more about specific errors reference the Zero Data Loss
+      Recovery Appliance Administrators Guide:
+        Chapter 13 - Error Message Reference:
+        http://docs.oracle.com/cd/E55822_01/AMAGD/amagd_errors.htm#AMAGD1442
+
+
+Wed Dec  4 17:53:05 2024: ACTION: Prior to upgrade resolve all active inicdents
+Optionally while not recommended:
+        You can use --force to bypass this alert.
+DETAILS=
+  CAUSE
+  WARNING!!! Active incidents found
+  For more details, see log file:
+   - /opt/oracle.RecoveryAppliance/log/racli_check_active_incidents_20241204.1753.log
+
+|ID=Check Active Incidents|NAME=Check Active Incidents|STATUS=FAIL|SUMMARY=Found active incidents|[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]# cat /opt/oracle.RecoveryAppliance/log/racli_check_ra_export_20241204.1753.log
+Wed Dec  4 17:53:17 2024: Nothing to do. [3] < [10]Wed Dec  4 17:53:17 2024: Set Command '/usr/bin/expect ' timeout to 305.
+
+Wed Dec  4 17:53:17 2024: spawn /usr/bin/ssh -o ConnectTimeout=20 -o UserKnownHostsFile=/opt/oracle.RecoveryAppliance/data/ssh/root/known_hosts -o HostKeyAlgorithms=ssh-rsa -o CanonicalizeHostname=yes -o LogLevel=error -l root hannvzDETAILS=see log file: /opt/oracle.RecoveryAppliance/log/racli_check_ra_export_20241204.1753.log|ID=Export Backup|NAME=Export Backup|STATUS=FAIL|SUMMARY=RA Export recent backups not found|[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]# cat /opt/oracle.RecoveryAppliance/log/racli_run_check_20241204.1752.log
+Wed Dec  4 17:52:44 2024: Start: Build Check
+Wed Dec  4 17:52:44 2024: Skipping GLOB(0x599d100)/group_config: Not a cfg file
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: Skipped Test run_check_supporttools. [/opt/oracle.RecoveryAppliance/bin/run_check_supporttools.sh] File Not found: [No such file or directory]
+Wed Dec  4 17:52:44 2024: CheckName option not selected - ok
+Wed Dec  4 17:52:44 2024: End: Build Check
+Wed Dec  4 17:52:44 2024: Start: Sort Check
+Wed Dec  4 17:52:44 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_appliance_status.pl ''' timeout to 300.
+
+Wed Dec  4 17:52:47 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_image_versions.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:00 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/ra_catalog_check.pl '--runcheck'' timeout to 300.
+
+Wed Dec  4 17:53:03 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_active_incidents.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:06 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_init_parameter.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:17 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_invalid_objects.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:17 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_ra_export.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:17 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_rasys_wallets.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:18 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_compute_alerts.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:20 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_cell_alerts.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:32 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_oracle_password.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:32 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_ra_version.sh ''' timeout to 300.
+
+Wed Dec  4 17:53:33 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_session_count.sh ''' timeout to 300.
+
+Wed Dec  4 17:53:33 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_filesystem_space.sh ''' timeout to 300.
+
+Wed Dec  4 17:53:35 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_tls_health.pl ''' timeout to 300.
+
+Wed Dec  4 17:53:36 2024: Set Command '/opt/oracle.RecoveryAppliance/bin/check_ra_compliance.sh ''' timeout to 300.
+
+[root@hannvzdlrasvr01 ~]#
