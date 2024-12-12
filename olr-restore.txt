@@ -1,0 +1,934 @@
+[root@hannvzdlrasvr01 olr]# ocrcheck -local
+Status of Oracle Local Registry is as follows :
+         Version                  :          4
+         Total pace (kbytes)     :     491684
+         Used space (kbytes)      :      83472
+         Available space (kbytes) :     408212
+         ID                       :  993144233
+         Device/File Name         : /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/hannvzdlrasvr01_19.olr
+                                    Device/File integrity check succeeded
+
+         Local registry integrity check succeeded
+
+         Logical corruption check failed
+[root@hannvzdlrasvr01 olr]# ocrconfig -local -showbackup
+
+hannvzdlrasvr01     2024/12/05 16:41:35     /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/autobackup_20241205_164135.olr     1402920100
+
+hannvzdlrasvr01     2024/11/19 13:52:11     /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/autobackup_20241119_135211.olr     3808481625
+
+hannvzdlrasvr01     2024/12/05 16:28:06     /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/backup_20241205_162806.olr     1402920100
+
+hannvzdlrasvr01     2024/12/05 16:14:14     /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/backup_20241205_161414.olr     896413342
+
+hannvzdlrasvr01     2024/05/25 13:39:01     /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/backup_20240525_133901.olr     3808481625
+[root@hannvzdlrasvr01 olr]# ocrconfig -showbackup
+PROT-26: Oracle Cluster Registry backup locations were retrieved from a local copy
+
+hannvzdlrasvr01     2024/12/09 10:10:14     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/backup00.ocr.286.1187259011     633061983
+
+hannvzdlrasvr01     2024/12/09 06:10:10     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/backup01.ocr.281.1187244609     633061983
+
+hannvzdlrasvr01     2024/12/09 02:10:07     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/backup02.ocr.287.1187230205     633061983
+
+hannvzdlrasvr01     2024/12/08 10:09:56     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/day.ocr.282.1187172597     633061983
+
+hannvzdlrasvr01     2024/11/30 11:45:15     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/week.ocr.283.1186400715     3808481625
+
+hannvzdlrasvr02     2024/12/07 12:36:59     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/backup_20241207_123659.ocr.280.1187095019     633061983
+
+hannvzdlrasvr01     2024/12/05 16:31:15     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/backup_20241205_163115.ocr.285.1186936275     1402920100
+
+hannvzdlrasvr01     2024/12/05 16:16:51     +CATALOG:/Cluster-ZDLRA/OCRBACKUP/backup_20241205_161651.ocr.284.1186935411     896413342
+[root@hannvzdlrasvr01 olr]#
+[root@hannvzdlrasvr01 olr]#
+[root@hannvzdlrasvr01 olr]# ls
+autobackup_20241119_135211.olr  autobackup_20241205_164135.olr  backup_20240525_133901.olr  backup_20241205_161414.olr  backup_20241205_162806.olr  hannvzdlrasvr01_19.olr  hannvzdlrasvr01_19.olr.bkp.patch
+[root@hannvzdlrasvr01 olr]# ocr
+ocrcheck       ocrcheck.bin   ocrconfig      ocrconfig.bin  ocrdump        ocrdump.bin    ocrpatch
+[root@hannvzdlrasvr01 olr]# /u01/app/19.0.0.0/grid/
+.opatchauto_storage/ addnode/             crf/                 evm/                 jdbc/                olap/                perl/                rootupgrade.sh       utl/
+.patch_storage/      advmccb/             crs/                 gipc/                jdk/                 ologgerd/            plsql/               runcluvfy.sh         wlm/
+OPatch/              assistants/          css/                 gnsd/                jlib/                opatchautocfg/       precomp/             sdk/                 wwg/
+QOpatch/             auth/                ctss/                gpnp/                ldap/                opmn/                pylib/               slax/                xag/
+acfs/                bin/                 ctx/                 gridSetup.sh         lib/                 oracore/             qos/                 sqlpatch/            xdk/
+acfsccm/             cdata/               cv/                  has/                 log/                 ord/                 racg/                sqlplus/
+acfsccreg/           cdp/                 dbjava/              hs/                  md/                  ords/                rdbms/               srvm/
+acfscm/              cfgtoollogs/         dbs/                 install/             mdns/                oss/                 relnotes/            suptools/
+acfsiob/             cha/                 deinstall/           instantclient/       network/             osysmond/            rhp/                 tomcat/
+acfsrd/              client/              demo/                inventory/           nls/                 oui/                 root.sh              ucp/
+acfsrm/              clone/               diagnostics/         javavm/              ohasd/               owm/                 root.sh.old          usm/
+[root@hannvzdlrasvr01 olr]# env | grep ORA
+ORACLE_SID=+ASM1
+ORACLE_BASE=/u01/app/oracle
+ORACLE_HOME=/u01/app/19.0.0.0/grid
+[root@hannvzdlrasvr01 olr]# ocrconfig -local -restore /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/backup_20241205_161414.olr
+[root@hannvzdlrasvr01 olr]# ocrcheck -local
+Status of Oracle Local Registry is as follows :
+         Version                  :          4
+         Total space (kbytes)     :     491684
+         Used space (kbytes)      :      83352
+         Available space (kbytes) :     408332
+         ID                       :  993144233
+         Device/File Name         : /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/hannvzdlrasvr01_19.olr
+                                    Device/File integrity check succeeded
+
+         Local registry integrity check succeeded
+
+         Logical corruption check succeeded
+
+[root@hannvzdlrasvr01 olr]#
+[root@hannvzdlrasvr01 olr]#
+[root@hannvzdlrasvr01 olr]#
+[root@hannvzdlrasvr01 olr]# cd
+[root@hannvzdlrasvr01 ~]# crsctl start crs -wait
+CRS-6706: Oracle Clusterware Release patch level ('633061983') does not match Software patch level ('896413342'). Oracle Clusterware cannot be started.
+CRS-4000: Command Start failed, or completed with errors.
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]# /u01/app/19.0.0.0/grid/crs/
+conf/     config/   include/  init/     install/  lib/      log/      mesg/     sbs/      script/   template/ trace/    utl/
+[root@hannvzdlrasvr01 ~]# /u01/app/19.0.0.0/grid/crs/install/root
+rootcrs.pl  rootcrs.sh  roothas.pl  roothas.sh
+[root@hannvzdlrasvr01 ~]# /u01/app/19.0.0.0/grid/crs/install/rootcrs.sh -prepatch
+Using configuration parameter file: /u01/app/19.0.0.0/grid/crs/install/crsconfig_params
+The log of current session can be found at:
+  /u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/crs_prepatch_apply_inplace_hannvzdlrasvr01_2024-12-12_03-55-54PM.log
+CRS-6706: Oracle Clusterware Release patch level ('633061983') does not match Software patch level ('896413342'). Oracle Clusterware cannot be started.
+CRS-4000: Command Start failed, or completed with errors.
+2024/12/12 15:55:58 CLSRSC-117: Failed to start Oracle Clusterware stack from the Grid Infrastructure home /u01/app/19.0.0.0/grid
+Died at /u01/app/19.0.0.0/grid/crs/install/crspatch.pm line 1672.
+The command '/u01/app/19.0.0.0/grid/perl/bin/perl -I/u01/app/19.0.0.0/grid/perl/lib -I/u01/app/19.0.0.0/grid/crs/install -I/u01/app/19.0.0.0/grid/xag /u01/app/19.0.0.0/grid/crs/install/rootcrs.pl -prepatch' execution failed
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]# cat /u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/crs_prepatch_apply_inplace_hannvzdlrasvr01_2024-12-12_03-55-54PM.log
+2024-12-12 15:55:54: Checking parameters from paramfile /u01/app/19.0.0.0/grid/crs/install/crsconfig_params to validate installer variables
+2024-12-12 15:55:54: Skipping validation for ODA_CONFIG
+2024-12-12 15:55:54: Skipping validation for OPC_CLUSTER_TYPE
+2024-12-12 15:55:54: Skipping validation for OPC_NAT_ADDRESS
+2024-12-12 15:55:54: Skipping validation for RHP_PROVISIONED
+2024-12-12 15:55:54: Skipping validation for SCAN_CREDENTIALS
+2024-12-12 15:55:54: Skipping validation for SCAN_IPS
+2024-12-12 15:55:54: Skipping validation for SCAN_TYPE
+2024-12-12 15:55:54: Install node: hannvzdlrasvr01
+2024-12-12 15:55:54: Current node is the install node
+2024-12-12 15:55:54: cache CLUSTER_CLASS to /u01/app/oracle/crsdata/@global/environmentInfo.cache
+2024-12-12 15:55:54: clusterClass = STANDALONE
+2024-12-12 15:55:54: The configuration parameter file /u01/app/19.0.0.0/grid/crs/install/crsconfig_params  is valid
+2024-12-12 15:55:54: Run command --/u01/app/19.0.0.0/grid/bin/oraversion -libVersion-- as oracle
+2024-12-12 15:55:54: /u01/app/19.0.0.0/grid/bin/oraversion -libVersion successfully executed
+2024-12-12 15:55:54: Command output:
+>  19
+>End Command output
+2024-12-12 15:55:54: "/u01/app/19.0.0.0/grid/bin/oraversion -libVersion" output: 19
+
+2024-12-12 15:55:54: Run command --/u01/app/19.0.0.0/grid/bin/oraversion -majorVersion-- as oracle
+2024-12-12 15:55:54: /u01/app/19.0.0.0/grid/bin/oraversion -majorVersion successfully executed
+2024-12-12 15:55:54: Command output:
+>  19
+>End Command output
+2024-12-12 15:55:54: "/u01/app/19.0.0.0/grid/bin/oraversion -majorVersion" output: 19
+
+2024-12-12 15:55:54: ### Printing the configuration values from files:
+2024-12-12 15:55:54:    /u01/app/19.0.0.0/grid/crs/install/crsconfig_params
+2024-12-12 15:55:54:    /u01/app/19.0.0.0/grid/crs/install/s_crsconfig_defs
+2024-12-12 15:55:54: AFD_CONF=false
+2024-12-12 15:55:54: APPLICATION_VIP=
+2024-12-12 15:55:54: ASMCA_ARGS=
+2024-12-12 15:55:54: ASM_CONFIG=near
+2024-12-12 15:55:54: ASM_CREDENTIALS=
+2024-12-12 15:55:54: ASM_DISCOVERY_STRING=o/*/CATALOG_*,o/*/DELTA_*
+2024-12-12 15:55:54: ASM_SPFILE=
+2024-12-12 15:55:54: ASM_UPGRADE=false
+2024-12-12 15:55:54: BIG_CLUSTER=true
+2024-12-12 15:55:54: CDATA_AUSIZE=4
+2024-12-12 15:55:54: CDATA_BACKUP_AUSIZE=
+2024-12-12 15:55:54: CDATA_BACKUP_DISKS=
+2024-12-12 15:55:54: CDATA_BACKUP_DISK_GROUP=
+2024-12-12 15:55:54: CDATA_BACKUP_FAILURE_GROUPS=
+2024-12-12 15:55:54: CDATA_BACKUP_QUORUM_GROUPS=
+2024-12-12 15:55:54: CDATA_BACKUP_REDUNDANCY=
+2024-12-12 15:55:54: CDATA_BACKUP_SITES=
+2024-12-12 15:55:54: CDATA_BACKUP_SIZE=
+2024-12-12 15:55:54: CDATA_DISKS=o/10.9.27.47;10.9.27.48/CATALOG_CD_00_hannvzdlracel08,o/10.9.27.53;10.9.27.54/CATALOG_CD_00_hannvzdlracel11,o/10.9.27.53;10.9.27.54/CATALOG_CD_03_hannvzdlracel11,o/10.9.27.47;10.9.27.48/CATALOG_CD_03_hannvzdlracel08,o/10.9.27.47;10.9.27.48/CATALOG_CD_06_hannvzdlracel08,o/10.9.27.33;10.9.27.34/CATALOG_CD_10_hannvzdlracel01,o/10.9.27.49;10.9.27.50/CATALOG_CD_02_hannvzdlracel09,o/10.9.27.49;10.9.27.50/CATALOG_CD_05_hannvzdlracel09,o/10.9.27.39;10.9.27.40/CATALOG_CD_11_hannvzdlracel04,o/10.9.27.41;10.9.27.42/CATALOG_CD_01_hannvzdlracel05,o/10.9.27.41;10.9.27.42/CATALOG_CD_04_hannvzdlracel05,o/10.9.27.41;10.9.27.42/CATALOG_CD_07_hannvzdlracel05,o/10.9.27.51;10.9.27.52/CATALOG_CD_06_hannvzdlracel10,o/10.9.27.51;10.9.27.52/CATALOG_CD_09_hannvzdlracel10,o/10.9.27.45;10.9.27.46/CATALOG_CD_03_hannvzdlracel07,o/10.9.27.41;10.9.27.42/CATALOG_CD_10_hannvzdlracel05,o/10.9.27.53;10.9.27.54/CATALOG_CD_11_hannvzdlracel11,o/10.9.27.45;10.9.27.46/CATALOG_CD_00_hannvzdlracel07,o/10.9.27.49;10.9.27.50/CATALOG_CD_08_hannvzdlracel09,o/10.9.27.45;10.9.27.46/CATALOG_CD_06_hannvzdlracel07,o/10.9.27.45;10.9.27.46/CATALOG_CD_09_hannvzdlracel07,o/10.9.27.51;10.9.27.52/CATALOG_CD_01_hannvzdlracel10,o/10.9.27.35;10.9.27.36/CATALOG_CD_10_hannvzdlracel02,o/10.9.27.51;10.9.27.52/CATALOG_CD_04_hannvzdlracel10,o/10.9.27.39;10.9.27.40/CATALOG_CD_06_hannvzdlracel04,o/10.9.27.35;10.9.27.36/CATALOG_CD_07_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_04_hannvzdlracel02,o/10.9.27.39;10.9.27.40/CATALOG_CD_00_hannvzdlracel04,o/10.9.27.39;10.9.27.40/CATALOG_CD_03_hannvzdlracel04,o/10.9.27.35;10.9.27.36/CATALOG_CD_01_hannvzdlracel02,o/10.9.27.39;10.9.27.40/CATALOG_CD_09_hannvzdlracel04,o/10.9.27.45;10.9.27.46/CATALOG_CD_11_hannvzdlracel07,o/10.9.27.53;10.9.27.54/CATALOG_CD_08_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_07_hannvzdlracel10,o/10.9.27.37;10.9.27.38/CATALOG_CD_00_hannvzdlracel03,o/10.9.27.49;10.9.27.50/CATALOG_CD_11_hannvzdlracel09,o/10.9.27.53;10.9.27.54/CATALOG_CD_05_hannvzdlracel11,o/10.9.27.53;10.9.27.54/CATALOG_CD_01_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_00_hannvzdlracel10,o/10.9.27.33;10.9.27.34/CATALOG_CD_01_hannvzdlracel01,o/10.9.27.51;10.9.27.52/CATALOG_CD_03_hannvzdlracel10,o/10.9.27.35;10.9.27.36/CATALOG_CD_08_hannvzdlracel02,o/10.9.27.41;10.9.27.42/CATALOG_CD_09_hannvzdlracel05,o/10.9.27.33;10.9.27.34/CATALOG_CD_04_hannvzdlracel01,o/10.9.27.39;10.9.27.40/CATALOG_CD_05_hannvzdlracel04,o/10.9.27.33;10.9.27.34/CATALOG_CD_07_hannvzdlracel01,o/10.9.27.37;10.9.27.38/CATALOG_CD_09_hannvzdlracel03,o/10.9.27.41;10.9.27.42/CATALOG_CD_03_hannvzdlracel05,o/10.9.27.35;10.9.27.36/CATALOG_CD_02_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_05_hannvzdlracel02,o/10.9.27.37;10.9.27.38/CATALOG_CD_06_hannvzdlracel03,o/10.9.27.39;10.9.27.40/CATALOG_CD_08_hannvzdlracel04,o/10.9.27.41;10.9.27.42/CATALOG_CD_06_hannvzdlracel05,o/10.9.27.39;10.9.27.40/CATALOG_CD_02_hannvzdlracel04,o/10.9.27.41;10.9.27.42/CATALOG_CD_00_hannvzdlracel05,o/10.9.27.43;10.9.27.44/CATALOG_CD_04_hannvzdlracel06,o/10.9.27.45;10.9.27.46/CATALOG_CD_05_hannvzdlracel07,o/10.9.27.37;10.9.27.38/CATALOG_CD_03_hannvzdlracel03,o/10.9.27.45;10.9.27.46/CATALOG_CD_08_hannvzdlracel07,o/10.9.27.47;10.9.27.48/CATALOG_CD_09_hannvzdlracel08,o/10.9.27.43;10.9.27.44/CATALOG_CD_01_hannvzdlracel06,o/10.9.27.45;10.9.27.46/CATALOG_CD_02_hannvzdlracel07,o/10.9.27.43;10.9.27.44/CATALOG_CD_07_hannvzdlracel06,o/10.9.27.43;10.9.27.44/CATALOG_CD_10_hannvzdlracel06,o/10.9.27.37;10.9.27.38/CATALOG_CD_05_hannvzdlracel03,o/10.9.27.37;10.9.27.38/CATALOG_CD_08_hannvzdlracel03,o/10.9.27.33;10.9.27.34/CATALOG_CD_00_hannvzdlracel01,o/10.9.27.37;10.9.27.38/CATALOG_CD_02_hannvzdlracel03,o/10.9.27.39;10.9.27.40/CATALOG_CD_01_hannvzdlracel04,o/10.9.27.51;10.9.27.52/CATALOG_CD_02_hannvzdlracel10,o/10.9.27.53;10.9.27.54/CATALOG_CD_10_hannvzdlracel11,o/10.9.27.41;10.9.27.42/CATALOG_CD_11_hannvzdlracel05,o/10.9.27.35;10.9.27.36/CATALOG_CD_11_hannvzdlracel02,o/10.9.27.39;10.9.27.40/CATALOG_CD_07_hannvzdlracel04,o/10.9.27.49;10.9.27.50/CATALOG_CD_09_hannvzdlracel09,o/10.9.27.49;10.9.27.50/CATALOG_CD_06_hannvzdlracel09,o/10.9.27.39;10.9.27.40/CATALOG_CD_04_hannvzdlracel04,o/10.9.27.43;10.9.27.44/CATALOG_CD_08_hannvzdlracel06,o/10.9.27.43;10.9.27.44/CATALOG_CD_05_hannvzdlracel06,o/10.9.27.45;10.9.27.46/CATALOG_CD_10_hannvzdlracel07,o/10.9.27.47;10.9.27.48/CATALOG_CD_07_hannvzdlracel08,o/10.9.27.49;10.9.27.50/CATALOG_CD_00_hannvzdlracel09,o/10.9.27.47;10.9.27.48/CATALOG_CD_04_hannvzdlracel08,o/10.9.27.43;10.9.27.44/CATALOG_CD_02_hannvzdlracel06,o/10.9.27.53;10.9.27.54/CATALOG_CD_04_hannvzdlracel11,o/10.9.27.53;10.9.27.54/CATALOG_CD_07_hannvzdlracel11,o/10.9.27.47;10.9.27.48/CATALOG_CD_01_hannvzdlracel08,o/10.9.27.49;10.9.27.50/CATALOG_CD_03_hannvzdlracel09,o/10.9.27.43;10.9.27.44/CATALOG_CD_11_hannvzdlracel06,o/10.9.27.53;10.9.27.54/CATALOG_CD_02_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_10_hannvzdlracel10,o/10.9.27.37;10.9.27.38/CATALOG_CD_11_hannvzdlracel03,o/10.9.27.33;10.9.27.34/CATALOG_CD_09_hannvzdlracel01,o/10.9.27.47;10.9.27.48/CATALOG_CD_10_hannvzdlracel08,o/10.9.27.33;10.9.27.34/CATALOG_CD_06_hannvzdlracel01,o/10.9.27.33;10.9.27.34/CATALOG_CD_03_hannvzdlracel01,o/10.9.27.43;10.9.27.44/CATALOG_CD_06_hannvzdlracel06,o/10.9.27.41;10.9.27.42/CATALOG_CD_05_hannvzdlracel05,o/10.9.27.45;10.9.27.46/CATALOG_CD_07_hannvzdlracel07,o/10.9.27.51;10.9.27.52/CATALOG_CD_11_hannvzdlracel10,o/10.9.27.41;10.9.27.42/CATALOG_CD_02_hannvzdlracel05,o/10.9.27.41;10.9.27.42/CATALOG_CD_08_hannvzdlracel05,o/10.9.27.39;10.9.27.40/CATALOG_CD_10_hannvzdlracel04,o/10.9.27.43;10.9.27.44/CATALOG_CD_09_hannvzdlracel06,o/10.9.27.33;10.9.27.34/CATALOG_CD_05_hannvzdlracel01,o/10.9.27.33;10.9.27.34/CATALOG_CD_08_hannvzdlracel01,o/10.9.27.43;10.9.27.44/CATALOG_CD_00_hannvzdlracel06,o/10.9.27.43;10.9.27.44/CATALOG_CD_03_hannvzdlracel06,o/10.9.27.35;10.9.27.36/CATALOG_CD_03_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_06_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_09_hannvzdlracel02,o/10.9.27.45;10.9.27.46/CATALOG_CD_01_hannvzdlracel07,o/10.9.27.45;10.9.27.46/CATALOG_CD_04_hannvzdlracel07,o/10.9.27.37;10.9.27.38/CATALOG_CD_04_hannvzdlracel03,o/10.9.27.47;10.9.27.48/CATALOG_CD_08_hannvzdlracel08,o/10.9.27.37;10.9.27.38/CATALOG_CD_10_hannvzdlracel03,o/10.9.27.37;10.9.27.38/CATALOG_CD_01_hannvzdlracel03,o/10.9.27.37;10.9.27.38/CATALOG_CD_07_hannvzdlracel03,o/10.9.27.47;10.9.27.48/CATALOG_CD_02_hannvzdlracel08,o/10.9.27.47;10.9.27.48/CATALOG_CD_05_hannvzdlracel08,o/10.9.27.47;10.9.27.48/CATALOG_CD_11_hannvzdlracel08,o/10.9.27.35;10.9.27.36/CATALOG_CD_00_hannvzdlracel02,o/10.9.27.33;10.9.27.34/CATALOG_CD_11_hannvzdlracel01,o/10.9.27.33;10.9.27.34/CATALOG_CD_02_hannvzdlracel01,o/10.9.27.51;10.9.27.52/CATALOG_CD_08_hannvzdlracel10,o/10.9.27.49;10.9.27.50/CATALOG_CD_10_hannvzdlracel09,o/10.9.27.53;10.9.27.54/CATALOG_CD_09_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_05_hannvzdlracel10,o/10.9.27.49;10.9.27.50/CATALOG_CD_01_hannvzdlracel09,o/10.9.27.53;10.9.27.54/CATALOG_CD_06_hannvzdlracel11,o/10.9.27.49;10.9.27.50/CATALOG_CD_04_hannvzdlracel09,o/10.9.27.49;10.9.27.50/CATALOG_CD_07_hannvzdlracel09
+2024-12-12 15:55:54: CDATA_DISK_GROUP=CATALOG
+2024-12-12 15:55:54: CDATA_FAILURE_GROUPS=
+2024-12-12 15:55:54: CDATA_QUORUM_GROUPS=
+2024-12-12 15:55:54: CDATA_REDUNDANCY=HIGH
+2024-12-12 15:55:54: CDATA_SITES=
+2024-12-12 15:55:54: CDATA_SIZE=
+2024-12-12 15:55:54: CLSCFG_MISSCOUNT=
+2024-12-12 15:55:54: CLUSTER_CLASS=STANDALONE
+2024-12-12 15:55:54: CLUSTER_GUID=
+2024-12-12 15:55:54: CLUSTER_NAME=Cluster-ZDLRA
+2024-12-12 15:55:54: CLUSTER_TYPE=DB
+2024-12-12 15:55:54: CRS_LIMIT_CORE=unlimited
+2024-12-12 15:55:54: CRS_LIMIT_MEMLOCK=unlimited
+2024-12-12 15:55:54: CRS_LSNR_STACK=32768
+2024-12-12 15:55:54: CRS_NODEVIPS='hannvzdlingest01-vip.dancuquocgia.bca/255.255.255.0/bondeth0,hannvzdlingest02-vip.dancuquocgia.bca/255.255.255.0/bondeth0'
+2024-12-12 15:55:54: CRS_STORAGE_OPTION=1
+2024-12-12 15:55:54: CSS_LEASEDURATION=400
+2024-12-12 15:55:54: DC_HOME=
+2024-12-12 15:55:54: DIRPREFIX=
+2024-12-12 15:55:54: DISABLE_OPROCD=0
+2024-12-12 15:55:54: EXTENDED_CLUSTER=false
+2024-12-12 15:55:54: EXTENDED_CLUSTER_SITES=Cluster-ZDLRA
+2024-12-12 15:55:54: EXTENDED_CLUSTER_SITE_GUIDS=
+2024-12-12 15:55:54: EXTERNAL_ORACLE=/opt/oracle
+2024-12-12 15:55:54: EXTERNAL_ORACLE_BIN=/opt/oracle/bin
+2024-12-12 15:55:54: GIMR_CONFIG=no
+2024-12-12 15:55:54: GIMR_CREDENTIALS=
+2024-12-12 15:55:54: GNS_ADDR_LIST=
+2024-12-12 15:55:54: GNS_ALLOW_NET_LIST=
+2024-12-12 15:55:54: GNS_CONF=false
+2024-12-12 15:55:54: GNS_CREDENTIALS=
+2024-12-12 15:55:54: GNS_DENY_ITF_LIST=
+2024-12-12 15:55:54: GNS_DENY_NET_LIST=
+2024-12-12 15:55:54: GNS_DOMAIN_LIST=
+2024-12-12 15:55:54: GNS_TYPE=
+2024-12-12 15:55:54: GPNPCONFIGDIR=/u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: GPNPGCONFIGDIR=/u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: GPNP_PA=
+2024-12-12 15:55:54: HUB_NODE_LIST=hannvzdlrasvr01,hannvzdlrasvr02
+2024-12-12 15:55:54: HUB_NODE_VIPS=hannvzdlingest01-vip.dancuquocgia.bca,hannvzdlingest02-vip.dancuquocgia.bca
+2024-12-12 15:55:54: HUB_SIZE=32
+2024-12-12 15:55:54: ID=/etc/init.d
+2024-12-12 15:55:54: INIT=/sbin/init
+2024-12-12 15:55:54: INITCTL=/sbin/initctl
+2024-12-12 15:55:54: INSTALL_NODE=hannvzdlrasvr01.dancuquocgia.bca
+2024-12-12 15:55:54: ISROLLING=true
+2024-12-12 15:55:54: IT=/etc/inittab
+2024-12-12 15:55:54: JLIBDIR=/u01/app/19.0.0.0/grid/jlib
+2024-12-12 15:55:54: JREDIR=/u01/app/19.0.0.0/grid/jdk/jre/
+2024-12-12 15:55:54: LANGUAGE_ID=AMERICAN_AMERICA.WE8ISO8859P1
+2024-12-12 15:55:54: LISTENER_USERNAME=oracle
+2024-12-12 15:55:54: MGMT_DB=false
+2024-12-12 15:55:54: MSGFILE=/var/adm/messages
+2024-12-12 15:55:54: NETWORKS="bondeth0"/10.9.44.0:public,"re0"/10.9.27.0:asm,"re0"/10.9.27.0:cluster_interconnect,"re1"/10.9.27.0:asm,"re1"/10.9.27.0:cluster_interconnect
+2024-12-12 15:55:54: NEW_HOST_NAME_LIST=
+2024-12-12 15:55:54: NEW_NODEVIPS='hannvzdlingest01-vip.dancuquocgia.bca/255.255.255.0/bondeth0,hannvzdlingest02-vip.dancuquocgia.bca/255.255.255.0/bondeth0'
+2024-12-12 15:55:54: NEW_NODE_NAME_LIST=
+2024-12-12 15:55:54: NEW_PRIVATE_NAME_LIST=
+2024-12-12 15:55:54: NODE_NAME_LIST=hannvzdlrasvr01,hannvzdlrasvr02
+2024-12-12 15:55:54: OCRCONFIG=/etc/oracle/ocr.loc
+2024-12-12 15:55:54: OCRCONFIGDIR=/etc/oracle
+2024-12-12 15:55:54: OCRID=
+2024-12-12 15:55:54: OCRLOC=ocr.loc
+2024-12-12 15:55:54: OCR_LOCATIONS=
+2024-12-12 15:55:54: ODA_CONFIG=
+2024-12-12 15:55:54: OLASTGASPDIR=/etc/oracle/lastgasp
+2024-12-12 15:55:54: OLD_CRS_HOME=
+2024-12-12 15:55:54: OLRCONFIG=/etc/oracle/olr.loc
+2024-12-12 15:55:54: OLRCONFIGDIR=/etc/oracle
+2024-12-12 15:55:54: OLRLOC=olr.loc
+2024-12-12 15:55:54: OPC_CLUSTER_TYPE=
+2024-12-12 15:55:54: OPC_NAT_ADDRESS=
+2024-12-12 15:55:54: OPROCDCHECKDIR=/etc/oracle/oprocd/check
+2024-12-12 15:55:54: OPROCDDIR=/etc/oracle/oprocd
+2024-12-12 15:55:54: OPROCDFATALDIR=/etc/oracle/oprocd/fatal
+2024-12-12 15:55:54: OPROCDSTOPDIR=/etc/oracle/oprocd/stop
+2024-12-12 15:55:54: ORACLE_BASE=/u01/app/oracle
+2024-12-12 15:55:54: ORACLE_HOME=/u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: ORACLE_OWNER=oracle
+2024-12-12 15:55:54: ORA_ASM_GROUP=dba
+2024-12-12 15:55:54: ORA_DBA_GROUP=oinstall
+2024-12-12 15:55:54: PING_TARGETS=
+2024-12-12 15:55:54: PRIVATE_NAME_LIST=
+2024-12-12 15:55:54: RCALLDIR=/etc/rc.d/rc0.d /etc/rc.d/rc1.d /etc/rc.d/rc2.d /etc/rc.d/rc3.d /etc/rc.d/rc4.d /etc/rc.d/rc5.d /etc/rc.d/rc6.d
+2024-12-12 15:55:54: RCKDIR=/etc/rc.d/rc0.d /etc/rc.d/rc1.d /etc/rc.d/rc2.d /etc/rc.d/rc4.d /etc/rc.d/rc6.d
+2024-12-12 15:55:54: RCSDIR=/etc/rc.d/rc3.d /etc/rc.d/rc5.d
+2024-12-12 15:55:54: RC_KILL=K15
+2024-12-12 15:55:54: RC_KILL_OLD=K96
+2024-12-12 15:55:54: RC_KILL_OLD2=K19
+2024-12-12 15:55:54: RC_START=S96
+2024-12-12 15:55:54: REUSEDG=false
+2024-12-12 15:55:54: RHP_CONF=false
+2024-12-12 15:55:54: RHP_PROVISIONED=
+2024-12-12 15:55:54: RIM_NODE_LIST=
+2024-12-12 15:55:54: SCAN_CREDENTIALS=
+2024-12-12 15:55:54: SCAN_IPS=
+2024-12-12 15:55:54: SCAN_NAME=hannvzdlra-scan1
+2024-12-12 15:55:54: SCAN_PORT=1521
+2024-12-12 15:55:54: SCAN_TYPE=LOCAL
+2024-12-12 15:55:54: SCRBASE=/etc/oracle/scls_scr
+2024-12-12 15:55:54: SILENT=true
+2024-12-12 15:55:54: SO_EXT=so
+2024-12-12 15:55:54: SRVCFGLOC=srvConfig.loc
+2024-12-12 15:55:54: SRVCONFIG=/var/opt/oracle/srvConfig.loc
+2024-12-12 15:55:54: SRVCONFIGDIR=/var/opt/oracle
+2024-12-12 15:55:54: SYSTEMCTL=/usr/bin/systemctl
+2024-12-12 15:55:54: SYSTEMD_SYSTEM_DIR=/etc/systemd/system
+2024-12-12 15:55:54: TZ=Asia/Ho_Chi_Minh
+2024-12-12 15:55:54: UPSTART_INIT_DIR=/etc/init
+2024-12-12 15:55:54: USER_IGNORED_PREREQ=true
+2024-12-12 15:55:54: VNDR_CLUSTER=false
+2024-12-12 15:55:54: VOTING_DISKS=
+2024-12-12 15:55:54: ### Printing other configuration values ###
+2024-12-12 15:55:54: CLSCFG_EXTRA_PARMS=
+2024-12-12 15:55:54: HAS_GROUP=oinstall
+2024-12-12 15:55:54: HAS_USER=root
+2024-12-12 15:55:54: HOST=hannvzdlrasvr01
+2024-12-12 15:55:54: OLR_DIRECTORY=/u01/app/oracle/crsdata/hannvzdlrasvr01/olr
+2024-12-12 15:55:54: OLR_LOCATION=/u01/app/oracle/crsdata/hannvzdlrasvr01/olr/hannvzdlrasvr01_19.olr
+2024-12-12 15:55:54: ORA_CRS_HOME=/u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: ORA_VERSION=19
+2024-12-12 15:55:54: PREPATCH=1
+2024-12-12 15:55:54: SIHA=0
+2024-12-12 15:55:54: SUCC_REBOOT=0
+2024-12-12 15:55:54: SUPERUSER=root
+2024-12-12 15:55:54: addfile=/u01/app/19.0.0.0/grid/crs/install/crsconfig_addparams
+2024-12-12 15:55:54: cluutil_trc_suff_pp=0
+2024-12-12 15:55:54: crscfg_trace=1
+2024-12-12 15:55:54: crscfg_trace_file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/crs_prepatch_apply_inplace_hannvzdlrasvr01_2024-12-12_03-55-54PM.log
+2024-12-12 15:55:54: old_nodevips=
+2024-12-12 15:55:54: osdfile=/u01/app/19.0.0.0/grid/crs/install/s_crsconfig_defs
+2024-12-12 15:55:54: osdfile_abspath=/u01/app/19.0.0.0/grid/crs/install/s_crsconfig_defs
+2024-12-12 15:55:54: parameters_valid=1
+2024-12-12 15:55:54: paramfile=/u01/app/19.0.0.0/grid/crs/install/crsconfig_params
+2024-12-12 15:55:54: platform_family=unix
+2024-12-12 15:55:54: pp_srvctl_trc_suff=0
+2024-12-12 15:55:54: srvctl_trc_suff=0
+2024-12-12 15:55:54: srvctl_trc_suff_pp=0
+2024-12-12 15:55:54: stackStartLevel=11
+2024-12-12 15:55:54: user_is_superuser=1
+2024-12-12 15:55:54: ### Printing of configuration values complete ###
+2024-12-12 15:55:54: Save the ASM password file location: +CATALOG/orapwASM
+2024-12-12 15:55:54: Print system environment variables:
+2024-12-12 15:55:54: BASH_FUNC_which% = () {  ( alias;
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+}
+2024-12-12 15:55:54: DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/0/bus
+2024-12-12 15:55:54: HISTCONTROL = ignoredups
+2024-12-12 15:55:54: HISTSIZE = 1000
+2024-12-12 15:55:54: HOME = /root
+2024-12-12 15:55:54: HOSTNAME = hannvzdlrasvr01.dancuquocgia.bca
+2024-12-12 15:55:54: LD_LIBRARY_PATH = /u01/app/19.0.0.0/grid/lib:/u01/app/19.0.0.0/grid/lib
+2024-12-12 15:55:54: LESSOPEN = ||/usr/bin/lesspipe.sh
+2024-12-12 15:55:54: LOGNAME = root
+2024-12-12 15:55:54: LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.m4a=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.oga=01;36:*.opus=01;36:*.spx=01;36:*.xspf=01;36:
+2024-12-12 15:55:54: MAIL = /var/spool/mail/root
+2024-12-12 15:55:54: OLDPWD = /u01/app/oracle/crsdata/hannvzdlrasvr01/olr
+2024-12-12 15:55:54: ORACLE_BASE = /u01/app/oracle
+2024-12-12 15:55:54: ORACLE_HOME = /u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: ORACLE_SID = +ASM1
+2024-12-12 15:55:54: PATH = /opt/oracle.RecoveryAppliance/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/u01/app/19.0.0.0/grid/bin
+2024-12-12 15:55:54: PWD = /root
+2024-12-12 15:55:54: PYTHONPATH = :/opt/oracle.cellos/lib/python
+2024-12-12 15:55:54: SHELL = /bin/bash
+2024-12-12 15:55:54: SHLVL = 2
+2024-12-12 15:55:54: SSH_CLIENT = 10.9.73.142 52475 22
+2024-12-12 15:55:54: SSH_CONNECTION = 10.9.73.142 52475 10.9.44.1 22
+2024-12-12 15:55:54: SSH_TTY = /dev/pts/2
+2024-12-12 15:55:54: S_COLORS = auto
+2024-12-12 15:55:54: TERM = xterm
+2024-12-12 15:55:54: TZ = Asia/Ho_Chi_Minh
+2024-12-12 15:55:54: USER = root
+2024-12-12 15:55:54: XDG_RUNTIME_DIR = /run/user/0
+2024-12-12 15:55:54: XDG_SESSION_ID = 1257
+2024-12-12 15:55:54: _ = /u01/app/19.0.0.0/grid/perl/bin/perl
+2024-12-12 15:55:54: which_declare = declare -f
+2024-12-12 15:55:54: Performing few checks before running scripts
+2024-12-12 15:55:54: script path /u01/app/19.0.0.0/grid/crs/install/rootcrs.pl
+2024-12-12 15:55:54: running script rootcrs.pl
+2024-12-12 15:55:54: Opening file /etc/oracle/ocr.loc
+2024-12-12 15:55:54: Value (false) is set for key=local_only
+2024-12-12 15:55:54: Attempt to get current working directory
+2024-12-12 15:55:54: Running as user oracle: pwd
+2024-12-12 15:55:54: Removing file /tmp/1kWVCDpQxt
+2024-12-12 15:55:54: Successfully removed file: /tmp/1kWVCDpQxt
+2024-12-12 15:55:54: pipe exit code: 0
+2024-12-12 15:55:54: /bin/su successfully executed
+
+2024-12-12 15:55:54: The current working directory: /root
+2024-12-12 15:55:54: Change working directory to safe directory /u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: Pre-checks for running the rootcrs script passed.
+2024-12-12 15:55:54: Perform initialization tasks before configuring AFD
+2024-12-12 15:55:54: Perform initialization tasks before configuring ACFS
+2024-12-12 15:55:54: Perform initialization tasks before configuring SRVM
+2024-12-12 15:55:54: Perform initialization tasks before configuring OHASD
+2024-12-12 15:55:54: Running prereq checks related to component AFD for patching
+2024-12-12 15:55:54: Doing prerequisite checks related to component ACFS for patching
+2024-12-12 15:55:54: Executing pwdx 49904 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing cmd: pwdx 49904 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing pwdx 234669 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing cmd: pwdx 234669 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing pwdx 235013 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing cmd: pwdx 235013 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing pwdx 235067 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing cmd: pwdx 235067 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing pwdx 394758 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing cmd: pwdx 394758 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing pwdx 394760 >/dev/null 2>&1
+2024-12-12 15:55:54: Executing cmd: pwdx 394760 >/dev/null 2>&1
+2024-12-12 15:55:54: Running /u01/app/19.0.0.0/grid/bin/acfsdriverstate installed -s
+2024-12-12 15:55:54: Executing cmd: /u01/app/19.0.0.0/grid/bin/acfsdriverstate installed -s
+2024-12-12 15:55:54: acfs is installed
+2024-12-12 15:55:54: Running /u01/app/19.0.0.0/grid/bin/acfsdriverstate loaded -s
+2024-12-12 15:55:54: Executing cmd: /u01/app/19.0.0.0/grid/bin/acfsdriverstate loaded -s
+2024-12-12 15:55:54: acfs is not loaded
+2024-12-12 15:55:54: isACFSInstalled: 1
+2024-12-12 15:55:54: isACFSLoaded: 0
+2024-12-12 15:55:54: isACFSInstalled: 1
+2024-12-12 15:55:54: isACFSLoaded: 0
+2024-12-12 15:55:54: Executing cmd: /u01/app/19.0.0.0/grid/bin/crsctl stat res ora.drivers.acfs -init
+2024-12-12 15:55:54: Command output:
+>  CRS-4639: Could not contact Oracle High Availability Services
+>  CRS-4000: Command Status failed, or completed with errors.
+>End Command output
+2024-12-12 15:55:54: Performing the pre-patching steps required for GI stack ...
+2024-12-12 15:55:54: Destination CRS home:
+2024-12-12 15:55:54: Configured GI home: /u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: GI Home to be patched: /u01/app/19.0.0.0/grid
+2024-12-12 15:55:54: abs path: /u01/app/19.0.0.0/grid/crs/install
+2024-12-12 15:55:54: realpath: /u01/app/19.0.0.0/grid/crs/install
+2024-12-12 15:55:54: The script is running from /u01/app/19.0.0.0/grid/crs/install
+2024-12-12 15:55:54: Validated the script is running from the home being patched.
+2024-12-12 15:55:54:      ckpt: -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO
+2024-12-12 15:55:54: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO"
+2024-12-12 15:55:54: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil1.log
+2024-12-12 15:55:54: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO
+2024-12-12 15:55:54: Removing file /tmp/6MkZRGlOgD
+2024-12-12 15:55:54: Successfully removed file: /tmp/6MkZRGlOgD
+2024-12-12 15:55:54: pipe exit code: 0
+2024-12-12 15:55:54: /bin/su successfully executed
+
+2024-12-12 15:55:54: TRUE
+
+2024-12-12 15:55:54: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO -status"
+2024-12-12 15:55:54: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil2.log
+2024-12-12 15:55:54: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO -status
+2024-12-12 15:55:54: Removing file /tmp/u3HI_E29fg
+2024-12-12 15:55:54: Successfully removed file: /tmp/u3HI_E29fg
+2024-12-12 15:55:54: pipe exit code: 0
+2024-12-12 15:55:54: /bin/su successfully executed
+
+2024-12-12 15:55:54: SUCCESS
+
+2024-12-12 15:55:54: The 'ROOTCRS_PATCHINFO' status is SUCCESS
+2024-12-12 15:55:54: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname FIRSTNODE_TOPATCH"
+2024-12-12 15:55:54: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil3.log
+2024-12-12 15:55:54: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname FIRSTNODE_TOPATCH
+2024-12-12 15:55:55: Removing file /tmp/69SaOAwnLw
+2024-12-12 15:55:55: Successfully removed file: /tmp/69SaOAwnLw
+2024-12-12 15:55:55: pipe exit code: 0
+2024-12-12 15:55:55: /bin/su successfully executed
+
+2024-12-12 15:55:55: FIRSTNODE_TOPATCH=hannvzdlrasvr01
+
+2024-12-12 15:55:55: Succeeded to get property value:FIRSTNODE_TOPATCH=hannvzdlrasvr01
+
+2024-12-12 15:55:55: First node to patch
+2024-12-12 15:55:55: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname NODENAME_LIST"
+2024-12-12 15:55:55: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil4.log
+2024-12-12 15:55:55: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname NODENAME_LIST
+2024-12-12 15:55:55: Removing file /tmp/DJ7I33sUbG
+2024-12-12 15:55:55: Successfully removed file: /tmp/DJ7I33sUbG
+2024-12-12 15:55:55: pipe exit code: 0
+2024-12-12 15:55:55: /bin/su successfully executed
+
+2024-12-12 15:55:55: NODENAME_LIST=hannvzdlrasvr01,hannvzdlrasvr02
+
+2024-12-12 15:55:55: Succeeded to get property value:NODENAME_LIST=hannvzdlrasvr01,hannvzdlrasvr02
+
+2024-12-12 15:55:55:      ckpt: -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO
+2024-12-12 15:55:55: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO"
+2024-12-12 15:55:55: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil5.log
+2024-12-12 15:55:55: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO
+2024-12-12 15:55:55: Removing file /tmp/OB8q9rEx6V
+2024-12-12 15:55:55: Successfully removed file: /tmp/OB8q9rEx6V
+2024-12-12 15:55:55: pipe exit code: 0
+2024-12-12 15:55:55: /bin/su successfully executed
+
+2024-12-12 15:55:55: TRUE
+
+2024-12-12 15:55:55: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO -status"
+2024-12-12 15:55:55: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil6.log
+2024-12-12 15:55:55: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO -status
+2024-12-12 15:55:55: Removing file /tmp/Bbcz3axXeB
+2024-12-12 15:55:55: Successfully removed file: /tmp/Bbcz3axXeB
+2024-12-12 15:55:55: pipe exit code: 0
+2024-12-12 15:55:55: /bin/su successfully executed
+
+2024-12-12 15:55:55: SUCCESS
+
+2024-12-12 15:55:55: The 'ROOTCRS_PATCHINFO' status is SUCCESS
+2024-12-12 15:55:55: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname FIRSTNODE_TOPATCH"
+2024-12-12 15:55:55: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil7.log
+2024-12-12 15:55:55: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname FIRSTNODE_TOPATCH
+2024-12-12 15:55:56: Removing file /tmp/XmG_vtAMKq
+2024-12-12 15:55:56: Successfully removed file: /tmp/XmG_vtAMKq
+2024-12-12 15:55:56: pipe exit code: 0
+2024-12-12 15:55:56: /bin/su successfully executed
+
+2024-12-12 15:55:56: FIRSTNODE_TOPATCH=hannvzdlrasvr01
+
+2024-12-12 15:55:56: Succeeded to get property value:FIRSTNODE_TOPATCH=hannvzdlrasvr01
+
+2024-12-12 15:55:56: First node to patch
+2024-12-12 15:55:56: Executing cmd: df -T /
+2024-12-12 15:55:56: Command output:
+>  Filesystem                   Type 1K-blocks     Used Available Use% Mounted on
+>  /dev/mapper/VGExaDb-LVDbSys1 xfs   31354880 16694676  14660204  54% /
+>End Command output
+2024-12-12 15:55:56: The file system type for /: xfs
+2024-12-12 15:55:56: Executing cmd: df -T /u01/app/19.0.0.0/grid
+2024-12-12 15:55:56: Command output:
+>  Filesystem                   Type 1K-blocks      Used Available Use% Mounted on
+>  /dev/mapper/VGExaDb-LVDbOra1 xfs  314470400 200473288 113997112  64% /u01
+>End Command output
+2024-12-12 15:55:56: The file system type for /u01/app/19.0.0.0/grid: xfs
+2024-12-12 15:55:56: The file system types of root and GI home file system are the same.
+2024-12-12 15:55:56: The sharedness check can be skipped.
+2024-12-12 15:55:56: Perform initialization tasks before configuring OLR
+2024-12-12 15:55:56: Perform initialization tasks before configuring OCR
+2024-12-12 15:55:56: copyOLRFile : host hannvzdlrasvr01
+2024-12-12 15:55:56: Run command --/bin/su oracle -c ' /u01/app/19.0.0.0/grid/bin/oraversion -majorVersion '-- as oracle
+2024-12-12 15:55:56: /bin/su oracle -c ' /u01/app/19.0.0.0/grid/bin/oraversion -majorVersion ' successfully executed
+2024-12-12 15:55:56: Command output:
+>  19
+>End Command output
+2024-12-12 15:55:56: "/u01/app/19.0.0.0/grid/bin/oraversion -majorVersion" output: 19
+
+2024-12-12 15:55:56: copyOLRFile : majVersion 19
+2024-12-12 15:55:56: Copying file from /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/hannvzdlrasvr01_19.olr to /u01/app/oracle/crsdata/hannvzdlrasvr01/olr/hannvzdlrasvr01_19.olr.bkp.patch for patch
+2024-12-12 15:55:56:   copy "/u01/app/oracle/crsdata/hannvzdlrasvr01/olr/hannvzdlrasvr01_19.olr" => "/u01/app/oracle/crsdata/hannvzdlrasvr01/olr/hannvzdlrasvr01_19.olr.bkp.patch"
+2024-12-12 15:55:56: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -state START"
+2024-12-12 15:55:56: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil8.log
+2024-12-12 15:55:56: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -state START
+2024-12-12 15:55:56: Removing file /tmp/JRQ7WxOBpb
+2024-12-12 15:55:56: Successfully removed file: /tmp/JRQ7WxOBpb
+2024-12-12 15:55:56: pipe exit code: 0
+2024-12-12 15:55:56: /bin/su successfully executed
+
+2024-12-12 15:55:56:
+2024-12-12 15:55:56: Succeeded in writing the checkpoint:'ROOTCRS_PREPATCH' with status:START
+2024-12-12 15:55:56: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname NONROLLING -pvalue 0"
+2024-12-12 15:55:56: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil9.log
+2024-12-12 15:55:56: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname NONROLLING -pvalue 0
+2024-12-12 15:55:56: Removing file /tmp/o89VpyCyYG
+2024-12-12 15:55:56: Successfully removed file: /tmp/o89VpyCyYG
+2024-12-12 15:55:56: pipe exit code: 0
+2024-12-12 15:55:56: /bin/su successfully executed
+
+2024-12-12 15:55:56:
+2024-12-12 15:55:56:  "-ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname NONROLLING -pvalue 0" succeeded with status 0.
+2024-12-12 15:55:56: Succeeded to add (property/value):('NONROLLING/'0') for checkpoint:ROOTCRS_PREPATCH
+2024-12-12 15:55:56: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname DESTCRSHOME -pvalue null"
+2024-12-12 15:55:56: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil10.log
+2024-12-12 15:55:56: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname DESTCRSHOME -pvalue null
+2024-12-12 15:55:57: Removing file /tmp/YvQJFMyBeD
+2024-12-12 15:55:57: Successfully removed file: /tmp/YvQJFMyBeD
+2024-12-12 15:55:57: pipe exit code: 0
+2024-12-12 15:55:57: /bin/su successfully executed
+
+2024-12-12 15:55:57:
+2024-12-12 15:55:57:  "-ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname DESTCRSHOME -pvalue null" succeeded with status 0.
+2024-12-12 15:55:57: Succeeded to add (property/value):('DESTCRSHOME/'null') for checkpoint:ROOTCRS_PREPATCH
+2024-12-12 15:55:57: Resetting cluutil_trc_suff_pp to 0
+2024-12-12 15:55:57: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname NORESTART -pvalue 0"
+2024-12-12 15:55:57: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil0.log
+2024-12-12 15:55:57: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname NORESTART -pvalue 0
+2024-12-12 15:55:57: Removing file /tmp/Ig98BZ9B5K
+2024-12-12 15:55:57: Successfully removed file: /tmp/Ig98BZ9B5K
+2024-12-12 15:55:57: pipe exit code: 0
+2024-12-12 15:55:57: /bin/su successfully executed
+
+2024-12-12 15:55:57:
+2024-12-12 15:55:57:  "-ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -pname NORESTART -pvalue 0" succeeded with status 0.
+2024-12-12 15:55:57: Succeeded to add (property/value):('NORESTART/'0') for checkpoint:ROOTCRS_PREPATCH
+2024-12-12 15:55:57: Perform initialization tasks before configuring ASM
+2024-12-12 15:55:57: Doing ASM prepatch
+2024-12-12 15:55:57:      ckpt: -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO
+2024-12-12 15:55:57: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO"
+2024-12-12 15:55:57: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil1.log
+2024-12-12 15:55:57: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO
+2024-12-12 15:55:57: Removing file /tmp/naCQTfGxMc
+2024-12-12 15:55:57: Successfully removed file: /tmp/naCQTfGxMc
+2024-12-12 15:55:57: pipe exit code: 0
+2024-12-12 15:55:57: /bin/su successfully executed
+
+2024-12-12 15:55:57: TRUE
+
+2024-12-12 15:55:57: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO -status"
+2024-12-12 15:55:57: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil2.log
+2024-12-12 15:55:57: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PATCHINFO -status
+2024-12-12 15:55:57: Removing file /tmp/z7jVnuOHZM
+2024-12-12 15:55:57: Successfully removed file: /tmp/z7jVnuOHZM
+2024-12-12 15:55:57: pipe exit code: 0
+2024-12-12 15:55:57: /bin/su successfully executed
+
+2024-12-12 15:55:57: SUCCESS
+
+2024-12-12 15:55:57: The 'ROOTCRS_PATCHINFO' status is SUCCESS
+2024-12-12 15:55:57: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname FIRSTNODE_TOPATCH"
+2024-12-12 15:55:57: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil3.log
+2024-12-12 15:55:57: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -global -oraclebase /u01/app/oracle -listckpt -name ROOTCRS_PATCHINFO -pname FIRSTNODE_TOPATCH
+2024-12-12 15:55:58: Removing file /tmp/yeNPI6F6gk
+2024-12-12 15:55:58: Successfully removed file: /tmp/yeNPI6F6gk
+2024-12-12 15:55:58: pipe exit code: 0
+2024-12-12 15:55:58: /bin/su successfully executed
+
+2024-12-12 15:55:58: FIRSTNODE_TOPATCH=hannvzdlrasvr01
+
+2024-12-12 15:55:58: Succeeded to get property value:FIRSTNODE_TOPATCH=hannvzdlrasvr01
+
+2024-12-12 15:55:58: First node to patch
+2024-12-12 15:55:58: Installing xsub XS_APPLIANCECLNT_GetODAType for function APPLIANCEGetODAType
+2024-12-12 15:55:58: shared library to load is libasmperl19.so
+2024-12-12 15:55:58: libpath found is /u01/app/19.0.0.0/grid/lib and /u01/app/19.0.0.0/grid/rdbms/lib
+2024-12-12 15:55:58: Calling APPLIANCEGetODAType failed... rc=1, odatype=Error while getting ODA type
+2024-12-12 15:55:58: Executing cmd: /u01/app/19.0.0.0/grid/bin/crsctl check crs
+2024-12-12 15:55:58: Command output:
+>  CRS-4639: Could not contact Oracle High Availability Services
+>End Command output
+2024-12-12 15:55:58: Preparing the GI stack for in-place patching ...
+2024-12-12 15:55:58: Patch GI home: '/u01/app/19.0.0.0/grid'
+2024-12-12 15:55:58: Executing cmd: /u01/app/19.0.0.0/grid/bin/crsctl stop crs  -f
+2024-12-12 15:55:58: Command output:
+>  CRS-4639: Could not contact Oracle High Availability Services
+>  CRS-4000: Command Stop failed, or completed with errors.
+>End Command output
+2024-12-12 15:55:58: The return value of stop of CRS: 1
+2024-12-12 15:55:58: Executing cmd: /u01/app/19.0.0.0/grid/bin/crsctl check crs
+2024-12-12 15:55:58: Command output:
+>  CRS-4639: Could not contact Oracle High Availability Services
+>End Command output
+2024-12-12 15:55:58: Oracle CRS stack has been shut down
+2024-12-12 15:55:58: Starting Oracle Clusterware stack to begin rolling patch...
+2024-12-12 15:55:58: Executing cmd: /u01/app/19.0.0.0/grid/bin/crsctl start crs -wait
+2024-12-12 15:55:58: Command output:
+>  CRS-6706: Oracle Clusterware Release patch level ('633061983') does not match Software patch level ('896413342'). Oracle Clusterware cannot be started.
+>  CRS-4000: Command Start failed, or completed with errors.
+>End Command output
+2024-12-12 15:55:58: The return value of blocking start of CRS: 1
+2024-12-12 15:55:58: Failed to start the Oracle CRS stack
+2024-12-12 15:55:58: Executing cmd: /u01/app/19.0.0.0/grid/bin/clsecho -p has -f clsrsc -m 117 '/u01/app/19.0.0.0/grid'
+2024-12-12 15:55:58: Executing cmd: /u01/app/19.0.0.0/grid/bin/clsecho -p has -f clsrsc -m 117 '/u01/app/19.0.0.0/grid'
+2024-12-12 15:55:58: Command output:
+>  CLSRSC-117: Failed to start Oracle Clusterware stack from the Grid Infrastructure home /u01/app/19.0.0.0/grid
+>End Command output
+2024-12-12 15:55:58: CLSRSC-117: Failed to start Oracle Clusterware stack from the Grid Infrastructure home /u01/app/19.0.0.0/grid
+2024-12-12 15:55:58: ###### Begin DIE Stack Trace ######
+2024-12-12 15:55:58:     Package         File                 Line Calling
+2024-12-12 15:55:58:     --------------- -------------------- ---- ----------
+2024-12-12 15:55:58:  1: main            rootcrs.pl            357 crsutils::dietrap
+2024-12-12 15:55:58:  2: crspatch        crspatch.pm          1672 main::__ANON__
+2024-12-12 15:55:58:  3: crspatch        crspatch.pm          1589 crspatch::performPrePatch
+2024-12-12 15:55:58:  4: crspatch        crspatch.pm           377 crspatch::crsPrePatch
+2024-12-12 15:55:58:  5: main            rootcrs.pl            370 crspatch::new
+2024-12-12 15:55:58: ####### End DIE Stack Trace #######
+
+2024-12-12 15:55:58: ROOTCRS_PREPATCH checkpoint has failed
+2024-12-12 15:55:58:      ckpt: -ckpt -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PREPATCH
+2024-12-12 15:55:58: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PREPATCH"
+2024-12-12 15:55:58: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil4.log
+2024-12-12 15:55:58: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PREPATCH
+2024-12-12 15:55:58: Removing file /tmp/laUElawgBk
+2024-12-12 15:55:58: Successfully removed file: /tmp/laUElawgBk
+2024-12-12 15:55:58: pipe exit code: 0
+2024-12-12 15:55:58: /bin/su successfully executed
+
+2024-12-12 15:55:58: TRUE
+
+2024-12-12 15:55:58: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PREPATCH -status"
+2024-12-12 15:55:58: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil5.log
+2024-12-12 15:55:58: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -chkckpt -name ROOTCRS_PREPATCH -status
+2024-12-12 15:55:58: Removing file /tmp/uFstGveZTx
+2024-12-12 15:55:58: Successfully removed file: /tmp/uFstGveZTx
+2024-12-12 15:55:58: pipe exit code: 0
+2024-12-12 15:55:58: /bin/su successfully executed
+
+2024-12-12 15:55:58: START
+
+2024-12-12 15:55:58: The 'ROOTCRS_PREPATCH' status is START
+2024-12-12 15:55:58: ROOTCRS_PREPATCH state is START
+2024-12-12 15:55:58: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -state FAIL"
+2024-12-12 15:55:58: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil6.log
+2024-12-12 15:55:58: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_PREPATCH -state FAIL
+2024-12-12 15:55:59: Removing file /tmp/7JOwpzbC2l
+2024-12-12 15:55:59: Successfully removed file: /tmp/7JOwpzbC2l
+2024-12-12 15:55:59: pipe exit code: 0
+2024-12-12 15:55:59: /bin/su successfully executed
+
+2024-12-12 15:55:59:
+2024-12-12 15:55:59: Succeeded in writing the checkpoint:'ROOTCRS_PREPATCH' with status:FAIL
+2024-12-12 15:55:59: Invoking "/u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_STACK -state FAIL"
+2024-12-12 15:55:59: trace file=/u01/app/oracle/crsdata/hannvzdlrasvr01/crsconfig/cluutil7.log
+2024-12-12 15:55:59: Running as user oracle: /u01/app/19.0.0.0/grid/bin/cluutil -ckpt -oraclebase /u01/app/oracle -writeckpt -name ROOTCRS_STACK -state FAIL
+2024-12-12 15:55:59: Removing file /tmp/hR_fW05nwo
+2024-12-12 15:55:59: Successfully removed file: /tmp/hR_fW05nwo
+2024-12-12 15:55:59: pipe exit code: 0
+2024-12-12 15:55:59: /bin/su successfully executed
+
+2024-12-12 15:55:59:
+2024-12-12 15:55:59: Succeeded in writing the checkpoint:'ROOTCRS_STACK' with status:FAIL
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 raacfs]# cat /u01/app/19.0.0.0/grid/crs/install/crsconfig_params
+# $Header: has/install/crsconfig/crsconfig_params.sbs /main/69 2017/09/15 06:53:47 muhe Exp $
+#
+# crsconfig.lib
+#
+# Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+#
+#    NAME
+#      crsconfig_params.sbs - Installer variables required for root config
+#
+#    DESCRIPTION
+#      crsconfig_param -
+#
+#    MODIFIED   (MM/DD/YY)
+#    muhe       07/27/17 - Fix bug 26421672
+#    luoli      06/22/17 - Remove CDATA_ALL_DISKGROUPS
+#    rdasari    05/15/17 - add RHP_PROVISIONED
+#    muhe       03/09/17 - Support SIHA upgrade
+#    shullur    02/12/17 - For fixing bug 25536573
+#    muhe       12/09/16 - Support shared scan
+#    shullur    11/18/16 - For fixing bug 25092647
+#    xyuan      11/07/16 - Fix bug 25037011
+#    samjo      06/17/16 - Add NAS support for CW files
+#    xyuan      04/21/16 - ODA Lite/SIP/IaaS
+#    bbeelamk   03/17/16 - Fix bug 22927215
+#    bbeelamk   02/15/16 - Fix bug 22685861
+#    ssprasad   12/05/15 - Bug 21496397: Add AFD_CONF
+#    sbezawad   11/17/15 - Bug 21919798: Add cluster properties to clscfg
+#    bbeelamk   08/18/15 - Set crsdeconfig log loc to dchome during deinstall
+#    jmarcias   07/24/15 - Fix bug 21492602
+#    jmarcias   07/21/15 - Fix bug 21471669
+#    jmarcias   06/16/15 - Fix bug 21256573
+#    muhe       05/08/15 - Fix bug 21039599
+#    luoli      04/26/15 - Remove redundant parameter NODELIST
+#    jmarcias   03/11/15 - Fix bug 20569941
+#    xyuan      12/16/14 - Fix bug 20206616
+#    xyuan      11/25/14 - Application Cluster
+#    bbeelamk   11/03/14 - Fix bug 19849644
+#    luoli      11/24/13 - write ckpts in ocr
+#    rdasari    06/27/13 - add PING_TARGETS
+#    rdasari    02/14/13 - XbranchMerge rdasari_bug-16101138_1 from
+#                          st_has_12.1.0.1
+#    rdasari    01/11/13 - disable security bug fix 9584563
+#    rdasari    09/13/12 - add GNS_TYPE
+#    rdasari    09/12/12 - remove auto node parameters
+#    rtamezd    09/12/12 - Fix bug 14115195
+#    sidshank   07/09/12 - add LISTENER_USERNAME.
+#    sidshank   02/07/12 - Remove OCFS_CONFIG param
+#    xesquive   01/24/12 - bug fix 13623926
+#    sidshank   11/01/11 - Add MGMT_DB parameter.
+#    rtamezd    09/09/11 - HUB, RIM, and AUTO_NODE_VIPS for 12g
+#    xyuan      07/19/11 - BC parameters for 12c
+#    rdasari    05/26/11 - add new params
+#    ksviswan   09/03/10 - XbranchMerge ksviswan_bug-9723529 from st_has_11.2.0
+#    dpham      05/20/10 - XbranchMerge dpham_bug-8609692 from st_has_11.2.0.1.0
+#    dpham      03/17/10 - Add TZ variable (9462081
+#    sujkumar   01/31/10 - CRF_HOME as ORACLE_HOME
+#    sujkumar   01/05/10 - Double quote args
+#    dpham      11/25/09 - Remove NETCFGJAR_NAME, EWTJAR_NAME, JEWTJAR_NAME,
+#                          SHAREJAR_NAME, HELPJAR_NAME, and EMBASEJAR_NAME
+#    sukumar    11/04/09 - Fix CRFHOME. Add CRFHOME2 for Windows.
+#    anutripa   10/18/09 - Add CRFHOME for IPD/OS
+#    dpham      03/10/09 - Add ORACLE_BASE
+#    dpham      11/19/08 - Add ORA_ASM_GROUP
+#    khsingh    11/13/08 - revert ORA_ASM_GROUP for automated sh
+#    dpham      11/03/08 - Add ORA_ASM_GROUP
+#    ppallapo   09/22/08 - Add OCRID and CLUSTER_GUID
+#    dpham      09/10/08 - set OCFS_CONFIG to sl_diskDriveMappingList
+#    srisanka   05/13/08 - remove ORA_CRS_HOME, ORA_HA_HOME
+#    ysharoni   05/07/08 - NETWORKS fmt change s_networkList->s_finalIntrList
+#    srisanka   04/14/08 - ASM_UPGRADE param
+#    hkanchar   04/02/08 - Add OCR and OLRLOC for windows
+#    ysharoni   02/15/08 - bug 6817375
+#    ahabbas    02/28/08 - temporarily remove the need to instantiate the
+#                          OCFS_CONFIG value
+#    srisanka   02/12/08 - add OCFS_CONFIG param
+#    srisanka   01/15/08 - separate generic and OSD params
+#    jachang    01/15/08 - Prepare ASM diskgroup parameter (commented out)
+#    ysharoni   12/27/07 - Static pars CSS_LEASEDURATION and ASM_SPFILE
+#    yizhang    12/10/07 - Add SCAN_NAME and SCAN_PORT
+#    ysharoni   12/14/07 - gpnp work, cont-d
+#    jachang    11/30/07 - Adding votedisk discovery string
+#    ysharoni   11/27/07 - Add GPnP params
+#    srisanka   10/18/07 - add params and combine crsconfig_defs.sh with this
+#                          file
+#    khsingh    12/08/06 - add HA parameters
+#    khsingh    12/08/06 - add HA_HOME
+#    khsingh    11/25/06 - Creation
+# ==========================================================
+# Copyright (c) 2001, 2017, Oracle and/or its affiliates. All rights reserved.
+#
+# crsconfig_params.sbs -
+#
+# Note:
+# Either have the installer instantiate the new variable or temporarily
+# skip the validation for the new variable when adding a new one to
+# the parameter file, otherwise the root script would abort due to no
+# value set for the parameter and that would break many things
+# ==========================================================
+
+SILENT=true
+ORACLE_OWNER=oracle
+ORA_DBA_GROUP=oinstall
+ORA_ASM_GROUP=dba
+LANGUAGE_ID=AMERICAN_AMERICA.WE8ISO8859P1
+TZ=Asia/Ho_Chi_Minh
+ISROLLING=true
+REUSEDG=false
+USER_IGNORED_PREREQ=true
+INSTALL_NODE=hannvzdlrasvr01.dancuquocgia.bca
+
+#LISTENER_USERNAME=%oracle_install_crs_NodeListenerUser%
+LISTENER_USERNAME=oracle
+MGMT_DB=false
+GIMR_CONFIG=no
+GIMR_CREDENTIALS=
+
+BIG_CLUSTER=true
+HUB_SIZE=32
+HUB_NODE_LIST=hannvzdlrasvr01,hannvzdlrasvr02
+RIM_NODE_LIST=
+HUB_NODE_VIPS=hannvzdlingest01-vip.dancuquocgia.bca,hannvzdlingest02-vip.dancuquocgia.bca
+PING_TARGETS=
+
+ORACLE_HOME=/u01/app/19.0.0.0/grid
+ORACLE_BASE=/u01/app/oracle
+OLD_CRS_HOME=
+
+JREDIR=/u01/app/19.0.0.0/grid/jdk/jre/
+JLIBDIR=/u01/app/19.0.0.0/grid/jlib
+
+CLUSTER_TYPE=DB
+VNDR_CLUSTER=false
+OCR_LOCATIONS=
+CLUSTER_NAME=Cluster-ZDLRA
+NODE_NAME_LIST=hannvzdlrasvr01,hannvzdlrasvr02
+PRIVATE_NAME_LIST=
+VOTING_DISKS=
+#VF_DISCOVERY_STRING=%s_vfdiscoverystring%
+
+# ASM consts
+ASM_UPGRADE=false
+ASM_SPFILE=
+ASM_DISCOVERY_STRING=o/*/CATALOG_*,o/*/DELTA_*
+ASM_CONFIG=near
+ASM_CREDENTIALS=
+ASMCA_ARGS=
+
+CRS_STORAGE_OPTION=1
+CSS_LEASEDURATION=400
+CRS_NODEVIPS='hannvzdlingest01-vip.dancuquocgia.bca/255.255.255.0/bondeth0,hannvzdlingest02-vip.dancuquocgia.bca/255.255.255.0/bondeth0'
+NETWORKS="bondeth0"/10.9.44.0:public,"re0"/10.9.27.0:asm,"re0"/10.9.27.0:cluster_interconnect,"re1"/10.9.27.0:asm,"re1"/10.9.27.0:cluster_interconnect
+SCAN_NAME=hannvzdlra-scan1
+SCAN_PORT=1521
+GPNP_PA=
+SCAN_TYPE=LOCAL
+SCAN_CREDENTIALS=
+
+# AFD consts
+AFD_CONF=false
+
+# RHP consts
+RHP_CONF=false
+RHP_PROVISIONED=
+
+# GNS consts
+GNS_CONF=false
+GNS_TYPE=
+GNS_ADDR_LIST=
+GNS_DOMAIN_LIST=
+GNS_ALLOW_NET_LIST=
+GNS_DENY_NET_LIST=
+GNS_DENY_ITF_LIST=
+GNS_CREDENTIALS=
+
+#### Required by OUI add node
+NEW_HOST_NAME_LIST=
+NEW_NODE_NAME_LIST=
+NEW_PRIVATE_NAME_LIST=
+NEW_NODEVIPS='hannvzdlingest01-vip.dancuquocgia.bca/255.255.255.0/bondeth0,hannvzdlingest02-vip.dancuquocgia.bca/255.255.255.0/bondeth0'
+
+############### OCR constants
+# GPNPCONFIGDIR is handled differently in dev (T_HAS_WORK for all)
+# GPNPGCONFIGDIR in dev expands to T_HAS_WORK_GLOBAL
+GPNPCONFIGDIR=$ORACLE_HOME
+GPNPGCONFIGDIR=$ORACLE_HOME
+OCRLOC=
+OLRLOC=
+OCRID=
+CLUSTER_GUID=
+
+CLSCFG_MISSCOUNT=
+
+## Parameters set by the crsdeconfig plugin during deinstall
+DC_HOME=
+
+######### Application Cluster
+APPLICATION_VIP=
+
+# Data and backup disk groups parameters
+CDATA_DISK_GROUP=CATALOG
+CDATA_FAILURE_GROUPS=
+CDATA_QUORUM_GROUPS=
+CDATA_DISKS=o/10.9.27.47;10.9.27.48/CATALOG_CD_00_hannvzdlracel08,o/10.9.27.53;10.9.27.54/CATALOG_CD_00_hannvzdlracel11,o/10.9.27.53;10.9.27.54/CATALOG_CD_03_hannvzdlracel11,o/10.9.27.47;10.9.27.48/CATALOG_CD_03_hannvzdlracel08,o/10.9.27.47;10.9.27.48/CATALOG_CD_06_hannvzdlracel08,o/10.9.27.33;10.9.27.34/CATALOG_CD_10_hannvzdlracel01,o/10.9.27.49;10.9.27.50/CATALOG_CD_02_hannvzdlracel09,o/10.9.27.49;10.9.27.50/CATALOG_CD_05_hannvzdlracel09,o/10.9.27.39;10.9.27.40/CATALOG_CD_11_hannvzdlracel04,o/10.9.27.41;10.9.27.42/CATALOG_CD_01_hannvzdlracel05,o/10.9.27.41;10.9.27.42/CATALOG_CD_04_hannvzdlracel05,o/10.9.27.41;10.9.27.42/CATALOG_CD_07_hannvzdlracel05,o/10.9.27.51;10.9.27.52/CATALOG_CD_06_hannvzdlracel10,o/10.9.27.51;10.9.27.52/CATALOG_CD_09_hannvzdlracel10,o/10.9.27.45;10.9.27.46/CATALOG_CD_03_hannvzdlracel07,o/10.9.27.41;10.9.27.42/CATALOG_CD_10_hannvzdlracel05,o/10.9.27.53;10.9.27.54/CATALOG_CD_11_hannvzdlracel11,o/10.9.27.45;10.9.27.46/CATALOG_CD_00_hannvzdlracel07,o/10.9.27.49;10.9.27.50/CATALOG_CD_08_hannvzdlracel09,o/10.9.27.45;10.9.27.46/CATALOG_CD_06_hannvzdlracel07,o/10.9.27.45;10.9.27.46/CATALOG_CD_09_hannvzdlracel07,o/10.9.27.51;10.9.27.52/CATALOG_CD_01_hannvzdlracel10,o/10.9.27.35;10.9.27.36/CATALOG_CD_10_hannvzdlracel02,o/10.9.27.51;10.9.27.52/CATALOG_CD_04_hannvzdlracel10,o/10.9.27.39;10.9.27.40/CATALOG_CD_06_hannvzdlracel04,o/10.9.27.35;10.9.27.36/CATALOG_CD_07_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_04_hannvzdlracel02,o/10.9.27.39;10.9.27.40/CATALOG_CD_00_hannvzdlracel04,o/10.9.27.39;10.9.27.40/CATALOG_CD_03_hannvzdlracel04,o/10.9.27.35;10.9.27.36/CATALOG_CD_01_hannvzdlracel02,o/10.9.27.39;10.9.27.40/CATALOG_CD_09_hannvzdlracel04,o/10.9.27.45;10.9.27.46/CATALOG_CD_11_hannvzdlracel07,o/10.9.27.53;10.9.27.54/CATALOG_CD_08_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_07_hannvzdlracel10,o/10.9.27.37;10.9.27.38/CATALOG_CD_00_hannvzdlracel03,o/10.9.27.49;10.9.27.50/CATALOG_CD_11_hannvzdlracel09,o/10.9.27.53;10.9.27.54/CATALOG_CD_05_hannvzdlracel11,o/10.9.27.53;10.9.27.54/CATALOG_CD_01_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_00_hannvzdlracel10,o/10.9.27.33;10.9.27.34/CATALOG_CD_01_hannvzdlracel01,o/10.9.27.51;10.9.27.52/CATALOG_CD_03_hannvzdlracel10,o/10.9.27.35;10.9.27.36/CATALOG_CD_08_hannvzdlracel02,o/10.9.27.41;10.9.27.42/CATALOG_CD_09_hannvzdlracel05,o/10.9.27.33;10.9.27.34/CATALOG_CD_04_hannvzdlracel01,o/10.9.27.39;10.9.27.40/CATALOG_CD_05_hannvzdlracel04,o/10.9.27.33;10.9.27.34/CATALOG_CD_07_hannvzdlracel01,o/10.9.27.37;10.9.27.38/CATALOG_CD_09_hannvzdlracel03,o/10.9.27.41;10.9.27.42/CATALOG_CD_03_hannvzdlracel05,o/10.9.27.35;10.9.27.36/CATALOG_CD_02_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_05_hannvzdlracel02,o/10.9.27.37;10.9.27.38/CATALOG_CD_06_hannvzdlracel03,o/10.9.27.39;10.9.27.40/CATALOG_CD_08_hannvzdlracel04,o/10.9.27.41;10.9.27.42/CATALOG_CD_06_hannvzdlracel05,o/10.9.27.39;10.9.27.40/CATALOG_CD_02_hannvzdlracel04,o/10.9.27.41;10.9.27.42/CATALOG_CD_00_hannvzdlracel05,o/10.9.27.43;10.9.27.44/CATALOG_CD_04_hannvzdlracel06,o/10.9.27.45;10.9.27.46/CATALOG_CD_05_hannvzdlracel07,o/10.9.27.37;10.9.27.38/CATALOG_CD_03_hannvzdlracel03,o/10.9.27.45;10.9.27.46/CATALOG_CD_08_hannvzdlracel07,o/10.9.27.47;10.9.27.48/CATALOG_CD_09_hannvzdlracel08,o/10.9.27.43;10.9.27.44/CATALOG_CD_01_hannvzdlracel06,o/10.9.27.45;10.9.27.46/CATALOG_CD_02_hannvzdlracel07,o/10.9.27.43;10.9.27.44/CATALOG_CD_07_hannvzdlracel06,o/10.9.27.43;10.9.27.44/CATALOG_CD_10_hannvzdlracel06,o/10.9.27.37;10.9.27.38/CATALOG_CD_05_hannvzdlracel03,o/10.9.27.37;10.9.27.38/CATALOG_CD_08_hannvzdlracel03,o/10.9.27.33;10.9.27.34/CATALOG_CD_00_hannvzdlracel01,o/10.9.27.37;10.9.27.38/CATALOG_CD_02_hannvzdlracel03,o/10.9.27.39;10.9.27.40/CATALOG_CD_01_hannvzdlracel04,o/10.9.27.51;10.9.27.52/CATALOG_CD_02_hannvzdlracel10,o/10.9.27.53;10.9.27.54/CATALOG_CD_10_hannvzdlracel11,o/10.9.27.41;10.9.27.42/CATALOG_CD_11_hannvzdlracel05,o/10.9.27.35;10.9.27.36/CATALOG_CD_11_hannvzdlracel02,o/10.9.27.39;10.9.27.40/CATALOG_CD_07_hannvzdlracel04,o/10.9.27.49;10.9.27.50/CATALOG_CD_09_hannvzdlracel09,o/10.9.27.49;10.9.27.50/CATALOG_CD_06_hannvzdlracel09,o/10.9.27.39;10.9.27.40/CATALOG_CD_04_hannvzdlracel04,o/10.9.27.43;10.9.27.44/CATALOG_CD_08_hannvzdlracel06,o/10.9.27.43;10.9.27.44/CATALOG_CD_05_hannvzdlracel06,o/10.9.27.45;10.9.27.46/CATALOG_CD_10_hannvzdlracel07,o/10.9.27.47;10.9.27.48/CATALOG_CD_07_hannvzdlracel08,o/10.9.27.49;10.9.27.50/CATALOG_CD_00_hannvzdlracel09,o/10.9.27.47;10.9.27.48/CATALOG_CD_04_hannvzdlracel08,o/10.9.27.43;10.9.27.44/CATALOG_CD_02_hannvzdlracel06,o/10.9.27.53;10.9.27.54/CATALOG_CD_04_hannvzdlracel11,o/10.9.27.53;10.9.27.54/CATALOG_CD_07_hannvzdlracel11,o/10.9.27.47;10.9.27.48/CATALOG_CD_01_hannvzdlracel08,o/10.9.27.49;10.9.27.50/CATALOG_CD_03_hannvzdlracel09,o/10.9.27.43;10.9.27.44/CATALOG_CD_11_hannvzdlracel06,o/10.9.27.53;10.9.27.54/CATALOG_CD_02_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_10_hannvzdlracel10,o/10.9.27.37;10.9.27.38/CATALOG_CD_11_hannvzdlracel03,o/10.9.27.33;10.9.27.34/CATALOG_CD_09_hannvzdlracel01,o/10.9.27.47;10.9.27.48/CATALOG_CD_10_hannvzdlracel08,o/10.9.27.33;10.9.27.34/CATALOG_CD_06_hannvzdlracel01,o/10.9.27.33;10.9.27.34/CATALOG_CD_03_hannvzdlracel01,o/10.9.27.43;10.9.27.44/CATALOG_CD_06_hannvzdlracel06,o/10.9.27.41;10.9.27.42/CATALOG_CD_05_hannvzdlracel05,o/10.9.27.45;10.9.27.46/CATALOG_CD_07_hannvzdlracel07,o/10.9.27.51;10.9.27.52/CATALOG_CD_11_hannvzdlracel10,o/10.9.27.41;10.9.27.42/CATALOG_CD_02_hannvzdlracel05,o/10.9.27.41;10.9.27.42/CATALOG_CD_08_hannvzdlracel05,o/10.9.27.39;10.9.27.40/CATALOG_CD_10_hannvzdlracel04,o/10.9.27.43;10.9.27.44/CATALOG_CD_09_hannvzdlracel06,o/10.9.27.33;10.9.27.34/CATALOG_CD_05_hannvzdlracel01,o/10.9.27.33;10.9.27.34/CATALOG_CD_08_hannvzdlracel01,o/10.9.27.43;10.9.27.44/CATALOG_CD_00_hannvzdlracel06,o/10.9.27.43;10.9.27.44/CATALOG_CD_03_hannvzdlracel06,o/10.9.27.35;10.9.27.36/CATALOG_CD_03_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_06_hannvzdlracel02,o/10.9.27.35;10.9.27.36/CATALOG_CD_09_hannvzdlracel02,o/10.9.27.45;10.9.27.46/CATALOG_CD_01_hannvzdlracel07,o/10.9.27.45;10.9.27.46/CATALOG_CD_04_hannvzdlracel07,o/10.9.27.37;10.9.27.38/CATALOG_CD_04_hannvzdlracel03,o/10.9.27.47;10.9.27.48/CATALOG_CD_08_hannvzdlracel08,o/10.9.27.37;10.9.27.38/CATALOG_CD_10_hannvzdlracel03,o/10.9.27.37;10.9.27.38/CATALOG_CD_01_hannvzdlracel03,o/10.9.27.37;10.9.27.38/CATALOG_CD_07_hannvzdlracel03,o/10.9.27.47;10.9.27.48/CATALOG_CD_02_hannvzdlracel08,o/10.9.27.47;10.9.27.48/CATALOG_CD_05_hannvzdlracel08,o/10.9.27.47;10.9.27.48/CATALOG_CD_11_hannvzdlracel08,o/10.9.27.35;10.9.27.36/CATALOG_CD_00_hannvzdlracel02,o/10.9.27.33;10.9.27.34/CATALOG_CD_11_hannvzdlracel01,o/10.9.27.33;10.9.27.34/CATALOG_CD_02_hannvzdlracel01,o/10.9.27.51;10.9.27.52/CATALOG_CD_08_hannvzdlracel10,o/10.9.27.49;10.9.27.50/CATALOG_CD_10_hannvzdlracel09,o/10.9.27.53;10.9.27.54/CATALOG_CD_09_hannvzdlracel11,o/10.9.27.51;10.9.27.52/CATALOG_CD_05_hannvzdlracel10,o/10.9.27.49;10.9.27.50/CATALOG_CD_01_hannvzdlracel09,o/10.9.27.53;10.9.27.54/CATALOG_CD_06_hannvzdlracel11,o/10.9.27.49;10.9.27.50/CATALOG_CD_04_hannvzdlracel09,o/10.9.27.49;10.9.27.50/CATALOG_CD_07_hannvzdlracel09
+CDATA_REDUNDANCY=HIGH
+CDATA_AUSIZE=4
+CDATA_SITES=
+CDATA_SIZE=
+
+CDATA_BACKUP_DISK_GROUP=
+CDATA_BACKUP_FAILURE_GROUPS=
+CDATA_BACKUP_QUORUM_GROUPS=
+CDATA_BACKUP_DISKS=
+CDATA_BACKUP_REDUNDANCY=
+CDATA_BACKUP_AUSIZE=
+CDATA_BACKUP_SITES=
+CDATA_BACKUP_SIZE=
+
+######### Extended Cluster
+EXTENDED_CLUSTER=false
+EXTENDED_CLUSTER_SITES=Cluster-ZDLRA
+EXTENDED_CLUSTER_SITE_GUIDS=
+
+# OPC variables
+OPC_CLUSTER_TYPE=
+OPC_NAT_ADDRESS=
+SCAN_IPS=
+
+######### Cluster Properties
+CLUSTER_CLASS=STANDALONE
+
+######### ODA variables
+ODA_CONFIG=
+[root@hannvzdlrasvr01 raacfs]#
+
+===============================
+
+[oracle@hannvzdlrasvr02 ~]$ opatch lspatches
+36592402;OCW Interim patch for 36592402
+33239955;TOMCAT RELEASE UPDATE 19.0.0.0.0 (33239955)
+33208107;ACFS RELEASE UPDATE 19.13.0.0.0 (33208107)
+33192793;Database Release Update : 19.13.0.0.211019 (33192793)
+32585572;DBWLM RELEASE UPDATE 19.0.0.0.0 (32585572)
+
+OPatch succeeded.
+[oracle@hannvzdlrasvr02 ~]$ /u01/app/19.0.0.0/grid/bin/crsctl query crs activeversion
+Oracle Clusterware active version on the cluster is [19.0.0.0.0]
+You have new mail in /var/spool/mail/oracle
+[oracle@hannvzdlrasvr02 ~]$ /u01/app/19.0.0.0/grid/bin/crsctl query crs activeversion -f
+Oracle Clusterware active version on the cluster is [19.0.0.0.0]. The cluster upgrade state is [NORMAL]. The cluster active patch level is [633061983].
+[oracle@hannvzdlrasvr02 ~]$ /u01/app/19.0.0.0/grid/bin/crsctl query crs releasepatch
+Oracle Clusterware release patch level is [633061983] and the complete list of patches [32585572 33192793 33208107 33239955 36592402 ] have been applied on the local node. The release patch string is [19.13.0.0.0].
+================================
+[oracle@hannvzdlrasvr01 ~]$ opatch lspatches
+36592402;OCW Interim patch for 36592402
+33239955;TOMCAT RELEASE UPDATE 19.0.0.0.0 (33239955)
+33208107;ACFS RELEASE UPDATE 19.13.0.0.0 (33208107)
+33192793;Database Release Update : 19.13.0.0.211019 (33192793)
+32585572;DBWLM RELEASE UPDATE 19.0.0.0.0 (32585572)
+
+OPatch succeeded.
+[root@hannvzdlrasvr01 ~]# /u01/app/19.0.0.0/grid/bin/crsctl query crs activeversion -f
+
+Oracle Clusterware active version on the cluster is [19.0.0.0.0]. The cluster upgrade state is [NORMAL]. The cluster active patch level is [3808481625].
+[root@hannvzdlrasvr01 ~]#
+[root@hannvzdlrasvr01 ~]# /u01/app/19.0.0.0/grid/bin/crsctl query crs releasepatch
+Oracle Clusterware release patch level is [633061983] and the complete list of patches [32585572 33192793 33208107 33239955 36592402 ] have been applied on the local node. The release patch string is [19.13.0.0.0].
+[root@hannvzdlrasvr01 ~]#
