@@ -1,0 +1,90 @@
+************************************************************************************************************
+NOTE    patchmgr release: 24.241016 (always check MOS 1553103.1 for the latest release of dbserver.patch.zip)
+NOTE
+NOTE    Database nodes will reboot during the update process.
+NOTE
+WARNING Do not interrupt the patchmgr session.
+WARNING Do not resize the screen. It may disturb the screen layout.
+WARNING Do not reboot database nodes during update or rollback.
+WARNING Do not open logfiles in write mode and do not try to alter them.
+************************************************************************************************************
+
+WARNING Your patchmgr is more than 60 days old. Check MOS 1553103.1 and make sure you have the most recent version.
+
+2024-12-17 16:00:26 +0700        :INFO   : Checking hosts connectivity via ICMP/ping
+2024-12-17 16:00:27 +0700        :INFO   : Hosts Reachable: [10.9.41.2]
+2024-12-17 16:00:27 +0700        :INFO   : All hosts are reachable via ping/ICMP
+2024-12-17 16:00:27 +0700        :Working: Verify SSH equivalence for the root user to 10.9.41.2
+2024-12-17 16:00:27 +0700        :SUCCESS: Verify SSH equivalence for the root user to 10.9.41.2
+2024-12-17 16:00:29 +0700        :Working: Initiate prepare steps on node(s).
+2024-12-17 16:00:46 +0700        :Working: Check for enough free space on 10.9.41.2 to transfer and unzip files.
+2024-12-17 16:00:50 +0700        :SUCCESS: Check for enough free space on 10.9.41.2 to transfer and unzip files.
+2024-12-17 16:00:51 +0700        :INFO   : Preparing nodes: 10.9.41.2
+2024-12-17 16:01:07 +0700        :SUCCESS: Initiate prepare steps on node(s).
+2024-12-17 16:01:07 +0700        :Working: Initiate update on 1 node(s).
+2024-12-17 16:01:22 +0700        :Working: dbnodeupdate.sh running a backup on 1 node(s).
+2024-12-17 16:02:42 +0700        :SUCCESS: dbnodeupdate.sh running a backup on 1 node(s).
+2024-12-17 16:02:42 +0700        :Working: Initiate update on node(s)
+2024-12-17 16:02:42 +0700        :Working: Get information about any required OS upgrades from 10.9.41.2.
+2024-12-17 16:02:52 +0700        :SUCCESS: Get information about any required OS upgrades from 10.9.41.2.
+2024-12-17 16:02:52 +0700        :Working: dbnodeupdate.sh running an update step on 10.9.41.2.
+2024-12-17 16:15:22 +0700        :INFO   : 10.9.41.2 is ready to reboot.
+2024-12-17 16:15:22 +0700        :SUCCESS: dbnodeupdate.sh running an update step on 10.9.41.2.
+2024-12-17 16:15:48 +0700        :Working: Initiate reboot on 10.9.41.2.
+2024-12-17 16:15:48 +0700        :SUCCESS: Initiate reboot on 10.9.41.2.
+2024-12-17 16:15:48 +0700        :Working: Waiting to ensure 10.9.41.2 is down before reboot.
+2024-12-17 16:16:23 +0700        :SUCCESS: Waiting to ensure 10.9.41.2 is down before reboot.
+2024-12-17 16:16:23 +0700        :Working: Waiting to ensure 10.9.41.2 is up after reboot.
+2024-12-17 16:19:20 +0700        :SUCCESS: Waiting to ensure 10.9.41.2 is up after reboot.
+2024-12-17 16:19:20 +0700        :Working: Waiting to connect to 10.9.41.2 with SSH. During Linux upgrades this can take some time.
+2024-12-17 16:19:26 +0700        :SUCCESS: Waiting to connect to 10.9.41.2 with SSH. During Linux upgrades this can take some time.
+2024-12-17 16:19:26 +0700        :Working: Wait for 10.9.41.2 is ready for the completion step of update.
+2024-12-17 16:19:59 +0700        :SUCCESS: Wait for 10.9.41.2 is ready for the completion step of update.
+2024-12-17 16:19:59 +0700        :Working: Initiate completion step from dbnodeupdate.sh on 10.9.41.2
+2024-12-17 16:22:12 +0700        :SUCCESS: Initiate completion step from dbnodeupdate.sh on 10.9.41.2.
+2024-12-17 16:22:57 +0700        :SUCCESS: Initiate update on node(s).
+2024-12-17 16:22:57 +0700        :SUCCESS: Initiate update on all node(s)
+2024-12-17 16:22:58 +0700        :SUCCESS: Initiate update on 1 node(s).
+
+2024-12-17 16:22:59 +0700        :SUCCESS: Completed run of command: ./patchmgr --dbnodes db_node2 --target_version 24.1.6.0.0.241115 --repo ../p37177000_241000_Linux-x86-64.zip --upgrade
+2024-12-17 16:22:59 +0700        :INFO   : Upgrade performed on dbnode(s) in file db_node2: [10.9.41.2]
+2024-12-17 16:22:59 +0700        :INFO   : Current image version on dbnode(s) is:
+2024-12-17 16:22:59 +0700        :INFO   : 10.9.41.2: 24.1.6.0.0.241115
+2024-12-17 16:22:59 +0700        :INFO   : For details, check the following files in /u01/patch/dbserver_patch_241016:
+2024-12-17 16:22:59 +0700        :INFO   :  - <dbnode_name>_dbnodeupdate.log
+2024-12-17 16:22:59 +0700        :INFO   :  - patchmgr.log
+2024-12-17 16:22:59 +0700        :INFO   :  - patchmgr.trc
+2024-12-17 16:23:10 +0700        :INFO   : Collected dbnodeupdate diag in file: Diag_patchmgr_dbnode_upgrade_171224160023.tbz
+
+2024-12-17 16:23:10 +0700        :INFO   : Exit status:0
+2024-12-17 16:23:10 +0700        :INFO   : Exiting.
+
+[root@hannvzdlrasvr02 trace]# date
+Tue Dec 17 18:21:47 +07 2024
+[root@hannvzdlrasvr02 trace]# /u01/app/19.0.0.0/grid/bin/crsctl start crs -wait
+CRS-4123: Starting Oracle High Availability Services-managed resources
+CRS-2672: Attempting to start 'ora.evmd' on 'hannvzdlrasvr02'
+CRS-2672: Attempting to start 'ora.mdnsd' on 'hannvzdlrasvr02'
+CRS-2676: Start of 'ora.mdnsd' on 'hannvzdlrasvr02' succeeded
+CRS-2676: Start of 'ora.evmd' on 'hannvzdlrasvr02' succeeded
+CRS-2672: Attempting to start 'ora.gpnpd' on 'hannvzdlrasvr02'
+CRS-2676: Start of 'ora.gpnpd' on 'hannvzdlrasvr02' succeeded
+CRS-2672: Attempting to start 'ora.gipcd' on 'hannvzdlrasvr02'
+CRS-2676: Start of 'ora.gipcd' on 'hannvzdlrasvr02' succeeded
+CRS-2672: Attempting to start 'ora.crf' on 'hannvzdlrasvr02'
+CRS-2672: Attempting to start 'ora.cssdmonitor' on 'hannvzdlrasvr02'
+CRS-2676: Start of 'ora.cssdmonitor' on 'hannvzdlrasvr02' succeeded
+CRS-2672: Attempting to start 'ora.cssd' on 'hannvzdlrasvr02'
+CRS-2672: Attempting to start 'ora.diskmon' on 'hannvzdlrasvr02'
+CRS-2676: Start of 'ora.diskmon' on 'hannvzdlrasvr02' succeeded
+CRS-2676: Start of 'ora.crf' on 'hannvzdlrasvr02' succeeded
+CRS-2672: Attempting to start 'ora.cssdmonitor' on 'hannvzdlrasvr02'
+CRS-2676: Start of 'ora.cssdmonitor' on 'hannvzdlrasvr02' succeeded
+CRS-1609: This node is unable to communicate with other nodes in the cluster and is going down to preserve cluster integrity; details at (:CSSNM00086:) in /u01/app/oracle/diag/crs/hannvzdlrasvr02/crs/trace/ocssd.trc.
+CRS-2883: Resource 'ora.cssd' failed during Clusterware stack start.
+CRS-4406: Oracle High Availability Services synchronous start failed.
+CRS-41053: checking Oracle Grid Infrastructure for file permission issues
+PRVH-0109 : Path "/u01/app/oracle/diag" with permissions "rwxr-xr-x" does not have write permissions for the file's group on node "hannvzdlrasvr02".
+PRVH-0186 : Path "/etc/oracle/cell/network-config/cellinit.ora" is not owned by user "oracle(1001)" and user is not the member of group "dbmusers(11140)" of the path on node "hannvzdlrasvr02".
+CRS-4000: Command Start failed, or completed with errors.
+[root@hannvzdlrasvr02 trace]#
